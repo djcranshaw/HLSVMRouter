@@ -1,0 +1,91 @@
+INFO: [HLS 200-10] Running '/nfs/opt/Xilinx/Vivado_HLS/2016.1/bin/unwrapped/lnx64.o/vivado_hls'
+INFO: [HLS 200-10] For user 'djc448' on host 'lnx231.classe.cornell.edu' (Linux_x86_64 version 3.10.0-514.6.1.el7.x86_64) on Wed Jul 05 11:39:26 EDT 2017
+INFO: [HLS 200-10] On os "Scientific Linux release 7.3 (Nitrogen)"
+INFO: [HLS 200-10] In directory '/mnt/scratch/djc448/HLSAlgorithm'
+INFO: [HLS 200-10] Opening project '/mnt/scratch/djc448/HLSAlgorithm/VMRouter_prj2'.
+INFO: [HLS 200-10] Adding design file 'HLSConstants.hh' to the project
+INFO: [HLS 200-10] Adding design file 'HLSFullStubLayerPS.hh' to the project
+INFO: [HLS 200-10] Adding design file 'HLSReducedStubLayer.hh' to the project
+INFO: [HLS 200-10] Adding design file 'VMRouter.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'VMRouter.hh' to the project
+INFO: [HLS 200-10] Adding test bench file 'VMRouter_in.dat' to the project
+INFO: [HLS 200-10] Adding test bench file 'VMRouter_outgold.dat' to the project
+INFO: [HLS 200-10] Adding test bench file 'VMRouter_test.cpp' to the project
+INFO: [HLS 200-10] Opening solution '/mnt/scratch/djc448/HLSAlgorithm/VMRouter_prj2/solution2'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 2ns.
+INFO: [HLS 200-10] Setting target device to 'xc7vx690tffg1158-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 2ns.
+WARNING: [HLS 200-40] Skipped source file 'VMRouter.hh'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+INFO: [HLS 200-10] Analyzing design file 'VMRouter.cpp' ... 
+WARNING: [HLS 200-40] Skipped source file 'HLSReducedStubLayer.hh'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+WARNING: [HLS 200-40] Skipped source file 'HLSFullStubLayerPS.hh'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+WARNING: [HLS 200-40] Skipped source file 'HLSConstants.hh'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+INFO: [HLS 200-10] Validating synthesis directives ...
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetZ' into 'VMRouter' (VMRouter.cpp:35) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetPhi' into 'VMRouter' (VMRouter.cpp:36) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetR' into 'VMRouter' (VMRouter.cpp:37) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetPt' into 'VMRouter' (VMRouter.cpp:38) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::AddStub' into 'VMRouter' (VMRouter.cpp:41) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSReducedStubLayer::AddStub' into 'VMRouter' (VMRouter.cpp:59) automatically.
+INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-1' (VMRouter.cpp:30) in function 'VMRouter' automatically.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (VMRouter.cpp:30) in function 'VMRouter' completely.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetZ' into 'VMRouter' (VMRouter.cpp:35) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetPhi' into 'VMRouter' (VMRouter.cpp:36) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetR' into 'VMRouter' (VMRouter.cpp:37) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetPt' into 'VMRouter' (VMRouter.cpp:38) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::AddStub' into 'VMRouter' (VMRouter.cpp:41) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSReducedStubLayer::AddStub' into 'VMRouter' (VMRouter.cpp:59) automatically.
+INFO: [HLS 200-111] Elapsed time: 2.82 seconds; current memory usage: 75.8 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'VMRouter' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Scheduling module 'VMRouter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-21] Estimated delay (2.39ns) of 'load' operation ('HLSFullStubLayerPS.z.V', VMRouter.cpp:35) on array 'stubsInLayer_z_V' exceeds the target cycle time (target cycle time: 2ns, clock uncertainty: 0.25ns, effective cycle time: 1.75ns).
+WARNING: [SCHED 204-21] Estimated clock period (2.39ns) exceeds the target (target clock period: 2ns, clock uncertainty: 0.25ns, effective delay budget: 1.75ns).
+WARNING: [SCHED 204-21] The critical path consists of the following:
+	'getelementptr' operation ('stubsInLayer_z_V_addr', VMRouter.cpp:35) (0 ns)
+	'load' operation ('HLSFullStubLayerPS.z.V', VMRouter.cpp:35) on array 'stubsInLayer_z_V' (2.39 ns)
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Elapsed time: 0.16 seconds; current memory usage: 76.2 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Exploring micro-architecture for module 'VMRouter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Elapsed time: 0.02 seconds; current memory usage: 76.5 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'VMRouter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/stubsInLayer_z_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/stubsInLayer_phi_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/stubsInLayer_r_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/stubsInLayer_pt_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/allStubs_z_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/allStubs_phi_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/allStubs_r_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/allStubs_pt_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/vmStubsPH1Z1_z_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/vmStubsPH1Z1_phi_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/vmStubsPH1Z1_r_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/vmStubsPH1Z1_pt_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/vmStubsPH1Z1_index_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/vmStubsPH1Z2_z_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/vmStubsPH1Z2_phi_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/vmStubsPH1Z2_r_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/vmStubsPH1Z2_pt_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouter/vmStubsPH1Z2_index_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'VMRouter' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'VMRouter'.
+INFO: [HLS 200-111] Elapsed time: 0.08 seconds; current memory usage: 76.9 MB.
+INFO: [HLS 200-10] Finished generating all RTL models.
+INFO: [SYSC 207-301] Generating SystemC RTL for VMRouter.
+INFO: [VHDL 208-304] Generating VHDL RTL for VMRouter.
+INFO: [VLOG 209-307] Generating Verilog RTL for VMRouter.
+INFO: [HLS 200-112] Total elapsed time: 17.442 seconds; peak memory usage: 76.9 MB.

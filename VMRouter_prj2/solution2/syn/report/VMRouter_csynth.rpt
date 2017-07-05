@@ -1,0 +1,201 @@
+
+
+================================================================
+== Vivado HLS Report for 'VMRouter'
+================================================================
+* Date:           Wed Jul  5 11:39:43 2017
+
+* Version:        2016.1 (Build 1538259 on Fri Apr 08 16:12:49 MDT 2016)
+* Project:        VMRouter_prj2
+* Solution:       solution2
+* Product family: virtex7
+* Target device:  xc7vx690tffg1158-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   2.00|      2.39|        0.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    3|    3|    4|    4|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       0|       4|
+|FIFO             |        -|      -|       -|       -|
+|Instance         |        -|      -|       -|       -|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|       1|
+|Register         |        -|      -|      53|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |        0|      0|      53|       5|
++-----------------+---------+-------+--------+--------+
+|Available        |     2940|   3600|  866400|  433200|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |cond_fu_359_p2        |   icmp   |      0|  0|   2|           4|           1|
+    |v_assign_6_fu_347_p2  |    xor   |      0|  0|   2|           1|           2|
+    +----------------------+----------+-------+---+----+------------+------------+
+    |Total                 |          |      0|  0|   4|           5|           3|
+    +----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------+----+-----------+-----+-----------+
+    |    Name   | LUT| Input Size| Bits| Total Bits|
+    +-----------+----+-----------+-----+-----------+
+    |ap_NS_fsm  |   1|          5|    1|          5|
+    +-----------+----+-----------+-----+-----------+
+    |Total      |   1|          5|    1|          5|
+    +-----------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------+----+----+-----+-----------+
+    |               Name              | FF | LUT| Bits| Const Bits|
+    +---------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                        |   4|   0|    4|          0|
+    |cond_reg_434                     |   1|   0|    1|          0|
+    |op2_V_read_assign_1_reg_422      |   2|   0|    2|          0|
+    |op2_V_read_assign_reg_428        |   3|   0|    3|          0|
+    |op2_V_read_assign_s_reg_406      |   4|   0|    4|          0|
+    |stubsInLayer_phi_V_load_reg_389  |  14|   0|   14|          0|
+    |stubsInLayer_pt_V_load_reg_399   |   3|   0|    3|          0|
+    |stubsInLayer_r_V_load_reg_394    |   7|   0|    7|          0|
+    |stubsInLayer_z_V_load_reg_384    |  12|   0|   12|          0|
+    |tmp_1_reg_412                    |   1|   0|    1|          0|
+    |tmp_reg_417                      |   2|   0|    2|          0|
+    +---------------------------------+----+----+-----+-----------+
+    |Total                            |  53|   0|   53|          0|
+    +---------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------------------+-----+-----+------------+----------------------+--------------+
+|           RTL Ports           | Dir | Bits|  Protocol  |     Source Object    |    C Type    |
++-------------------------------+-----+-----+------------+----------------------+--------------+
+|ap_clk                         |  in |    1| ap_ctrl_hs |       VMRouter       | return value |
+|ap_rst                         |  in |    1| ap_ctrl_hs |       VMRouter       | return value |
+|ap_start                       |  in |    1| ap_ctrl_hs |       VMRouter       | return value |
+|ap_done                        | out |    1| ap_ctrl_hs |       VMRouter       | return value |
+|ap_idle                        | out |    1| ap_ctrl_hs |       VMRouter       | return value |
+|ap_ready                       | out |    1| ap_ctrl_hs |       VMRouter       | return value |
+|stubsInLayer_z_V_address0      | out |    1|  ap_memory |   stubsInLayer_z_V   |     array    |
+|stubsInLayer_z_V_ce0           | out |    1|  ap_memory |   stubsInLayer_z_V   |     array    |
+|stubsInLayer_z_V_q0            |  in |   12|  ap_memory |   stubsInLayer_z_V   |     array    |
+|stubsInLayer_phi_V_address0    | out |    1|  ap_memory |  stubsInLayer_phi_V  |     array    |
+|stubsInLayer_phi_V_ce0         | out |    1|  ap_memory |  stubsInLayer_phi_V  |     array    |
+|stubsInLayer_phi_V_q0          |  in |   14|  ap_memory |  stubsInLayer_phi_V  |     array    |
+|stubsInLayer_r_V_address0      | out |    1|  ap_memory |   stubsInLayer_r_V   |     array    |
+|stubsInLayer_r_V_ce0           | out |    1|  ap_memory |   stubsInLayer_r_V   |     array    |
+|stubsInLayer_r_V_q0            |  in |    7|  ap_memory |   stubsInLayer_r_V   |     array    |
+|stubsInLayer_pt_V_address0     | out |    1|  ap_memory |   stubsInLayer_pt_V  |     array    |
+|stubsInLayer_pt_V_ce0          | out |    1|  ap_memory |   stubsInLayer_pt_V  |     array    |
+|stubsInLayer_pt_V_q0           |  in |    3|  ap_memory |   stubsInLayer_pt_V  |     array    |
+|allStubs_z_V_address0          | out |    1|  ap_memory |     allStubs_z_V     |     array    |
+|allStubs_z_V_ce0               | out |    1|  ap_memory |     allStubs_z_V     |     array    |
+|allStubs_z_V_we0               | out |    1|  ap_memory |     allStubs_z_V     |     array    |
+|allStubs_z_V_d0                | out |   12|  ap_memory |     allStubs_z_V     |     array    |
+|allStubs_phi_V_address0        | out |    1|  ap_memory |    allStubs_phi_V    |     array    |
+|allStubs_phi_V_ce0             | out |    1|  ap_memory |    allStubs_phi_V    |     array    |
+|allStubs_phi_V_we0             | out |    1|  ap_memory |    allStubs_phi_V    |     array    |
+|allStubs_phi_V_d0              | out |   14|  ap_memory |    allStubs_phi_V    |     array    |
+|allStubs_r_V_address0          | out |    1|  ap_memory |     allStubs_r_V     |     array    |
+|allStubs_r_V_ce0               | out |    1|  ap_memory |     allStubs_r_V     |     array    |
+|allStubs_r_V_we0               | out |    1|  ap_memory |     allStubs_r_V     |     array    |
+|allStubs_r_V_d0                | out |    7|  ap_memory |     allStubs_r_V     |     array    |
+|allStubs_pt_V_address0         | out |    1|  ap_memory |     allStubs_pt_V    |     array    |
+|allStubs_pt_V_ce0              | out |    1|  ap_memory |     allStubs_pt_V    |     array    |
+|allStubs_pt_V_we0              | out |    1|  ap_memory |     allStubs_pt_V    |     array    |
+|allStubs_pt_V_d0               | out |    3|  ap_memory |     allStubs_pt_V    |     array    |
+|vmStubsPH1Z1_z_V_address0      | out |    1|  ap_memory |   vmStubsPH1Z1_z_V   |     array    |
+|vmStubsPH1Z1_z_V_ce0           | out |    1|  ap_memory |   vmStubsPH1Z1_z_V   |     array    |
+|vmStubsPH1Z1_z_V_we0           | out |    1|  ap_memory |   vmStubsPH1Z1_z_V   |     array    |
+|vmStubsPH1Z1_z_V_d0            | out |    4|  ap_memory |   vmStubsPH1Z1_z_V   |     array    |
+|vmStubsPH1Z1_phi_V_address0    | out |    1|  ap_memory |  vmStubsPH1Z1_phi_V  |     array    |
+|vmStubsPH1Z1_phi_V_ce0         | out |    1|  ap_memory |  vmStubsPH1Z1_phi_V  |     array    |
+|vmStubsPH1Z1_phi_V_we0         | out |    1|  ap_memory |  vmStubsPH1Z1_phi_V  |     array    |
+|vmStubsPH1Z1_phi_V_d0          | out |    3|  ap_memory |  vmStubsPH1Z1_phi_V  |     array    |
+|vmStubsPH1Z1_r_V_address0      | out |    1|  ap_memory |   vmStubsPH1Z1_r_V   |     array    |
+|vmStubsPH1Z1_r_V_ce0           | out |    1|  ap_memory |   vmStubsPH1Z1_r_V   |     array    |
+|vmStubsPH1Z1_r_V_we0           | out |    1|  ap_memory |   vmStubsPH1Z1_r_V   |     array    |
+|vmStubsPH1Z1_r_V_d0            | out |    2|  ap_memory |   vmStubsPH1Z1_r_V   |     array    |
+|vmStubsPH1Z1_pt_V_address0     | out |    1|  ap_memory |   vmStubsPH1Z1_pt_V  |     array    |
+|vmStubsPH1Z1_pt_V_ce0          | out |    1|  ap_memory |   vmStubsPH1Z1_pt_V  |     array    |
+|vmStubsPH1Z1_pt_V_we0          | out |    1|  ap_memory |   vmStubsPH1Z1_pt_V  |     array    |
+|vmStubsPH1Z1_pt_V_d0           | out |    3|  ap_memory |   vmStubsPH1Z1_pt_V  |     array    |
+|vmStubsPH1Z1_index_V_address0  | out |    1|  ap_memory | vmStubsPH1Z1_index_V |     array    |
+|vmStubsPH1Z1_index_V_ce0       | out |    1|  ap_memory | vmStubsPH1Z1_index_V |     array    |
+|vmStubsPH1Z1_index_V_we0       | out |    1|  ap_memory | vmStubsPH1Z1_index_V |     array    |
+|vmStubsPH1Z1_index_V_d0        | out |    6|  ap_memory | vmStubsPH1Z1_index_V |     array    |
+|vmStubsPH1Z2_z_V_address0      | out |    1|  ap_memory |   vmStubsPH1Z2_z_V   |     array    |
+|vmStubsPH1Z2_z_V_ce0           | out |    1|  ap_memory |   vmStubsPH1Z2_z_V   |     array    |
+|vmStubsPH1Z2_z_V_we0           | out |    1|  ap_memory |   vmStubsPH1Z2_z_V   |     array    |
+|vmStubsPH1Z2_z_V_d0            | out |    4|  ap_memory |   vmStubsPH1Z2_z_V   |     array    |
+|vmStubsPH1Z2_phi_V_address0    | out |    1|  ap_memory |  vmStubsPH1Z2_phi_V  |     array    |
+|vmStubsPH1Z2_phi_V_ce0         | out |    1|  ap_memory |  vmStubsPH1Z2_phi_V  |     array    |
+|vmStubsPH1Z2_phi_V_we0         | out |    1|  ap_memory |  vmStubsPH1Z2_phi_V  |     array    |
+|vmStubsPH1Z2_phi_V_d0          | out |    3|  ap_memory |  vmStubsPH1Z2_phi_V  |     array    |
+|vmStubsPH1Z2_r_V_address0      | out |    1|  ap_memory |   vmStubsPH1Z2_r_V   |     array    |
+|vmStubsPH1Z2_r_V_ce0           | out |    1|  ap_memory |   vmStubsPH1Z2_r_V   |     array    |
+|vmStubsPH1Z2_r_V_we0           | out |    1|  ap_memory |   vmStubsPH1Z2_r_V   |     array    |
+|vmStubsPH1Z2_r_V_d0            | out |    2|  ap_memory |   vmStubsPH1Z2_r_V   |     array    |
+|vmStubsPH1Z2_pt_V_address0     | out |    1|  ap_memory |   vmStubsPH1Z2_pt_V  |     array    |
+|vmStubsPH1Z2_pt_V_ce0          | out |    1|  ap_memory |   vmStubsPH1Z2_pt_V  |     array    |
+|vmStubsPH1Z2_pt_V_we0          | out |    1|  ap_memory |   vmStubsPH1Z2_pt_V  |     array    |
+|vmStubsPH1Z2_pt_V_d0           | out |    3|  ap_memory |   vmStubsPH1Z2_pt_V  |     array    |
+|vmStubsPH1Z2_index_V_address0  | out |    1|  ap_memory | vmStubsPH1Z2_index_V |     array    |
+|vmStubsPH1Z2_index_V_ce0       | out |    1|  ap_memory | vmStubsPH1Z2_index_V |     array    |
+|vmStubsPH1Z2_index_V_we0       | out |    1|  ap_memory | vmStubsPH1Z2_index_V |     array    |
+|vmStubsPH1Z2_index_V_d0        | out |    6|  ap_memory | vmStubsPH1Z2_index_V |     array    |
++-------------------------------+-----+-----+------------+----------------------+--------------+
+
