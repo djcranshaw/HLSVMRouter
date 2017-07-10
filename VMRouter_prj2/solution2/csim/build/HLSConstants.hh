@@ -3,7 +3,7 @@
 #include "ap_int.h"
 
 // Define max number of stubs an individual module can take
-const int MAX_nSTUBS = 1;
+const int MAX_nSTUBS = 64;
 
 // Define bit widths for full stub parameters (for both PS & 2S)
 typedef ap_uint<12> FullZ_Layer_PS;

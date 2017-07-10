@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'VMRouter'" level="0">
-<item name = "Date">Wed Jul  5 11:39:42 2017
+<item name = "Date">Mon Jul 10 14:49:50 2017
 </item>
 <item name = "Version">2016.1 (Build 1538259 on Fri Apr 08 16:12:49 MDT 2016)</item>
 <item name = "Project">VMRouter_prj2</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">3, 3, 4, 4, none</column>
+<column name="">129, 321, 130, 322, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,6 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">128, 320, 2 ~ 5, -, -, 64, no</column>
 </table>
 </item>
 </section>

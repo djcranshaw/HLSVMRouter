@@ -5,14 +5,14 @@
 ############################################################
 open_project VMRouter_prj2
 set_top VMRouter
-add_files HLSConstants.hh
-add_files HLSFullStubLayerPS.hh
-add_files HLSReducedStubLayer.hh
-add_files VMRouter.cpp
 add_files VMRouter.hh
-add_files -tb VMRouter_in.dat
-add_files -tb VMRouter_outgold.dat
+add_files VMRouter.cpp
+add_files HLSReducedStubLayer.hh
+add_files HLSFullStubLayerPS.hh
+add_files HLSConstants.hh
 add_files -tb VMRouter_test.cpp
+add_files -tb VMRouter_outgold.dat
+add_files -tb VMRouter_in.dat
 open_solution "solution2"
 set_part {xc7vx690tffg1158-1}
 create_clock -period 2 -name default

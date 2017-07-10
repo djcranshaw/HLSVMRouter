@@ -44,7 +44,7 @@ set TargetInfo "xc7vx690t:ffg1158:-1"
 set SourceFiles {sc {} c ../../VMRouter.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile {/mnt/scratch/djc448/HLSAlgorithm/VMRouter_prj2/solution2/solution2.directive}
-set TBFiles {verilog {../../VMRouter_test.cpp ../../VMRouter_outgold.dat ../../VMRouter_in.dat} bc {../../VMRouter_test.cpp ../../VMRouter_outgold.dat ../../VMRouter_in.dat} vhdl {../../VMRouter_test.cpp ../../VMRouter_outgold.dat ../../VMRouter_in.dat} sc {../../VMRouter_test.cpp ../../VMRouter_outgold.dat ../../VMRouter_in.dat} cas {../../VMRouter_test.cpp ../../VMRouter_outgold.dat ../../VMRouter_in.dat} c {}}
+set TBFiles {verilog {../../VMRouter_in.dat ../../VMRouter_outgold.dat ../../VMRouter_test.cpp} bc {../../VMRouter_in.dat ../../VMRouter_outgold.dat ../../VMRouter_test.cpp} vhdl {../../VMRouter_in.dat ../../VMRouter_outgold.dat ../../VMRouter_test.cpp} sc {../../VMRouter_in.dat ../../VMRouter_outgold.dat ../../VMRouter_test.cpp} cas {../../VMRouter_in.dat ../../VMRouter_outgold.dat ../../VMRouter_test.cpp} c {}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

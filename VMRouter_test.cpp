@@ -7,44 +7,201 @@
 #include <vector>
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
+#include <fstream>
+#include <bitset>
 
 using namespace std;
-/*
+
 int main()
 {
-  HLSFullStubLayer stubsInLayer[MAX_nSTUBS];
-  HLSFullStubLayer allStubs[MAX_nSTUBS];
+  HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS];
+  HLSFullStubLayerPS allStubs[MAX_nSTUBS];
   HLSReducedStubLayer vmStubsPH1Z1[MAX_nSTUBS];
+  HLSReducedStubLayer vmStubsPH2Z1[MAX_nSTUBS];
+  HLSReducedStubLayer vmStubsPH3Z1[MAX_nSTUBS];
+  HLSReducedStubLayer vmStubsPH4Z1[MAX_nSTUBS];
   HLSReducedStubLayer vmStubsPH1Z2[MAX_nSTUBS];
+  HLSReducedStubLayer vmStubsPH2Z2[MAX_nSTUBS];
+  HLSReducedStubLayer vmStubsPH3Z2[MAX_nSTUBS];
+  HLSReducedStubLayer vmStubsPH4Z2[MAX_nSTUBS];
 
-  int inZ, inPhi, inR, inPt;
-  int allZ, allPhi, allR, allPt;
-  FILE *fin;
-  FILE *fout;
+  FullZ_Layer_PS inZ;
+  FullPhi_Layer_PS inPhi;
+  FullR_Layer_PS inR;
+  FullPt_Layer_PS inPt;
 
-  fin = fopen("VMRouter_in.dat","r");
-  fout = fopen("VMRouter_out.dat","w");
-  int nStubs;
-  fscanf(fin,"%d",&nStubs);
-  for (int i=0; i<nStubs; i++)
+  FullZ_Layer_PS allZ;
+  FullPhi_Layer_PS allPhi;
+  FullR_Layer_PS allR;
+  FullPt_Layer_PS allPt;
+
+  ReducedZ_Layer redZ;
+  ReducedPhi_Layer redPhi;
+  ReducedR_Layer redR;
+  ReducedPt_Layer redPt;
+  ReducedIndex redIndex;
+
+  string strZ, strPhi, strR, strPt, strIndex;
+
+  ifstream fin;
+  ofstream fout;
+
+  string token;
+  int nStubs = 0;
+  fin.open("VMRouter_in.dat");
+  while (getline(fin,token,'|'))
   {
-    fscanf(fin,"%d %d %d %d",&inZ, &inPhi, &inR, &inPt);
-	stubsInLayer[i].SetZ(inZ);
-	stubsInLayer[i].SetPhi(inPhi);
-	stubsInLayer[i].SetR(inR);
-	stubsInLayer[i].SetPt(inPt);
+    inPt.set_VAL(strtol(token.c_str(),NULL,2));
+    getline(fin,token,'|');
+    inR.set_VAL(strtol(token.c_str(),NULL,2));
+    getline(fin,token,'|');
+    inZ.set_VAL(strtol(token.c_str(),NULL,2));
+    getline(fin,token,'\n');
+    inPhi.set_VAL(strtol(token.c_str(),NULL,2));
+    stubsInLayer[nStubs].AddStub(inZ, inPhi, inR, inPt);
+    nStubs++;
   }
-  VMRouter(stubsInLayer, allStubs, vmStubsPH1Z1, vmStubsPH1Z2);
-  for (int i=0; i<nStubs; i++)
+  fin.close();
+  VMRouter(stubsInLayer, allStubs,
+           vmStubsPH1Z1, vmStubsPH2Z1,
+		   vmStubsPH3Z1, vmStubsPH4Z1,
+		   vmStubsPH1Z2, vmStubsPH2Z2,
+           vmStubsPH3Z2, vmStubsPH4Z2, nStubs);
+
+  fout.open("VMRouter_out.dat");
+  char outString[128];
+
+  for (int i=0; i<MAX_nSTUBS; i++)
   {
-	allZ = allStubs[i].GetZ();
-	allPhi = allStubs[i].GetPhi();
-	allR = allStubs[i].GetR();
-	allPt = allStubs[i].GetPt();
-	fprintf(fout,"%d %d %d %d\n",allPt, allR, allPhi, allZ);
+    if (!vmStubsPH1Z1[i].GetReal()) break;
+    redZ = vmStubsPH1Z1[i].GetZ();
+    redPhi = vmStubsPH1Z1[i].GetPhi();
+    redR = vmStubsPH1Z1[i].GetR();
+    redPt = vmStubsPH1Z1[i].GetPt();
+    redIndex = vmStubsPH1Z1[i].GetIndex();
+    strZ = bitset<4>(redZ.to_int()).to_string().c_str();
+    strIndex = bitset<6>(redIndex.to_int()).to_string().c_str();
+    strPhi = bitset<3>(redPhi.to_int()).to_string().c_str();
+    strR = bitset<2>(redR.to_int()).to_string().c_str();
+    strPt = bitset<3>(redPt.to_int()).to_string().c_str();
+    sprintf(outString,"%s|%s|%s|%s|%s\n", strPt.c_str(), strIndex.c_str(), strZ.c_str(), strPhi.c_str(), strR.c_str());
+    fout << outString;
   }
-  fclose(fin);
-  fclose(fout);
+  for (int i=0; i<MAX_nSTUBS; i++)
+  {
+    if (!vmStubsPH2Z1[i].GetReal()) break;
+    redZ = vmStubsPH2Z1[i].GetZ();
+    redPhi = vmStubsPH2Z1[i].GetPhi();
+    redR = vmStubsPH2Z1[i].GetR();
+    redPt = vmStubsPH2Z1[i].GetPt();
+    redIndex = vmStubsPH2Z1[i].GetIndex();
+    strZ = bitset<4>(redZ.to_int()).to_string().c_str();
+    strIndex = bitset<6>(redIndex.to_int()).to_string().c_str();
+    strPhi = bitset<3>(redPhi.to_int()).to_string().c_str();
+    strR = bitset<2>(redR.to_int()).to_string().c_str();
+    strPt = bitset<3>(redPt.to_int()).to_string().c_str();
+    sprintf(outString,"%s|%s|%s|%s|%s\n", strPt.c_str(), strIndex.c_str(), strZ.c_str(), strPhi.c_str(), strR.c_str());
+    fout << outString;
+  }
+  for (int i=0; i<MAX_nSTUBS; i++)
+  {
+    if (!vmStubsPH3Z1[i].GetReal()) break;
+    redZ = vmStubsPH3Z1[i].GetZ();
+    redPhi = vmStubsPH3Z1[i].GetPhi();
+    redR = vmStubsPH3Z1[i].GetR();
+    redPt = vmStubsPH3Z1[i].GetPt();
+    redIndex = vmStubsPH3Z1[i].GetIndex();
+    strZ = bitset<4>(redZ.to_int()).to_string().c_str();
+    strIndex = bitset<6>(redIndex.to_int()).to_string().c_str();
+    strPhi = bitset<3>(redPhi.to_int()).to_string().c_str();
+    strR = bitset<2>(redR.to_int()).to_string().c_str();
+    strPt = bitset<3>(redPt.to_int()).to_string().c_str();
+    sprintf(outString,"%s|%s|%s|%s|%s\n", strPt.c_str(), strIndex.c_str(), strZ.c_str(), strPhi.c_str(), strR.c_str());
+    fout << outString;
+  }
+  for (int i=0; i<MAX_nSTUBS; i++)
+  {
+    if (!vmStubsPH4Z1[i].GetReal()) break;
+    redZ = vmStubsPH4Z1[i].GetZ();
+    redPhi = vmStubsPH4Z1[i].GetPhi();
+    redR = vmStubsPH4Z1[i].GetR();
+    redPt = vmStubsPH4Z1[i].GetPt();
+    redIndex = vmStubsPH4Z1[i].GetIndex();
+    strZ = bitset<4>(redZ.to_int()).to_string().c_str();
+    strIndex = bitset<6>(redIndex.to_int()).to_string().c_str();
+    strPhi = bitset<3>(redPhi.to_int()).to_string().c_str();
+    strR = bitset<2>(redR.to_int()).to_string().c_str();
+    strPt = bitset<3>(redPt.to_int()).to_string().c_str();
+    sprintf(outString,"%s|%s|%s|%s|%s\n", strPt.c_str(), strIndex.c_str(), strZ.c_str(), strPhi.c_str(), strR.c_str());
+    fout << outString;
+  }
+  for (int i=0; i<MAX_nSTUBS; i++)
+  {
+    if (!vmStubsPH1Z2[i].GetReal()) break;
+    redZ = vmStubsPH1Z2[i].GetZ();
+    redPhi = vmStubsPH1Z2[i].GetPhi();
+    redR = vmStubsPH1Z2[i].GetR();
+    redPt = vmStubsPH1Z2[i].GetPt();
+    redIndex = vmStubsPH1Z2[i].GetIndex();
+    strZ = bitset<4>(redZ.to_int()).to_string().c_str();
+    strIndex = bitset<6>(redIndex.to_int()).to_string().c_str();
+    strPhi = bitset<3>(redPhi.to_int()).to_string().c_str();
+    strR = bitset<2>(redR.to_int()).to_string().c_str();
+    strPt = bitset<3>(redPt.to_int()).to_string().c_str();
+    sprintf(outString,"%s|%s|%s|%s|%s\n", strPt.c_str(), strIndex.c_str(), strZ.c_str(), strPhi.c_str(), strR.c_str());
+    fout << outString;
+  }
+  for (int i=0; i<MAX_nSTUBS; i++)
+  {
+    if (!vmStubsPH2Z2[i].GetReal()) break;
+    redZ = vmStubsPH2Z2[i].GetZ();
+    redPhi = vmStubsPH2Z2[i].GetPhi();
+    redR = vmStubsPH2Z2[i].GetR();
+    redPt = vmStubsPH2Z2[i].GetPt();
+    redIndex = vmStubsPH2Z2[i].GetIndex();
+    strZ = bitset<4>(redZ.to_int()).to_string().c_str();
+    strIndex = bitset<6>(redIndex.to_int()).to_string().c_str();
+    strPhi = bitset<3>(redPhi.to_int()).to_string().c_str();
+    strR = bitset<2>(redR.to_int()).to_string().c_str();
+    strPt = bitset<3>(redPt.to_int()).to_string().c_str();
+    sprintf(outString,"%s|%s|%s|%s|%s\n", strPt.c_str(), strIndex.c_str(), strZ.c_str(), strPhi.c_str(), strR.c_str());
+    fout << outString;
+  }
+  for (int i=0; i<MAX_nSTUBS; i++)
+  {
+    if (!vmStubsPH3Z2[i].GetReal()) break;
+    redZ = vmStubsPH3Z2[i].GetZ();
+    redPhi = vmStubsPH3Z2[i].GetPhi();
+    redR = vmStubsPH3Z2[i].GetR();
+    redPt = vmStubsPH3Z2[i].GetPt();
+    redIndex = vmStubsPH3Z2[i].GetIndex();
+    strZ = bitset<4>(redZ.to_int()).to_string().c_str();
+    strIndex = bitset<6>(redIndex.to_int()).to_string().c_str();
+    strPhi = bitset<3>(redPhi.to_int()).to_string().c_str();
+    strR = bitset<2>(redR.to_int()).to_string().c_str();
+    strPt = bitset<3>(redPt.to_int()).to_string().c_str();
+    sprintf(outString,"%s|%s|%s|%s|%s\n", strPt.c_str(), strIndex.c_str(), strZ.c_str(), strPhi.c_str(), strR.c_str());
+    fout << outString;
+  }
+  for (int i=0; i<MAX_nSTUBS; i++)
+  {
+    if (!vmStubsPH4Z2[i].GetReal()) break;
+    redZ = vmStubsPH4Z2[i].GetZ();
+    redPhi = vmStubsPH4Z2[i].GetPhi();
+    redR = vmStubsPH4Z2[i].GetR();
+    redPt = vmStubsPH4Z2[i].GetPt();
+    redIndex = vmStubsPH4Z2[i].GetIndex();
+    strZ = bitset<4>(redZ.to_int()).to_string().c_str();
+    strIndex = bitset<6>(redIndex.to_int()).to_string().c_str();
+    strPhi = bitset<3>(redPhi.to_int()).to_string().c_str();
+    strR = bitset<2>(redR.to_int()).to_string().c_str();
+    strPt = bitset<3>(redPt.to_int()).to_string().c_str();
+    sprintf(outString,"%s|%s|%s|%s|%s\n", strPt.c_str(), strIndex.c_str(), strZ.c_str(), strPhi.c_str(), strR.c_str());
+    fout << outString;
+  }
+  fout.close();
+
   if (system("diff -w VMRouter_out.dat VMRouter_outgold.dat"))
   {
     return 1;
@@ -52,7 +209,7 @@ int main()
     return 0;
   }
 }
-*/
+
 /*
 int main()
 {
@@ -71,7 +228,7 @@ int main()
 	return 0;
 
 }
-*/
+
 int main()
 {
   HLSFullStubLayerPS stubsInLayer[1];
@@ -117,5 +274,5 @@ int main()
   return 0;
 
 }
-
+*/
 

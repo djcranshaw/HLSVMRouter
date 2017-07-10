@@ -205,6 +205,11 @@ extern "C" {
 # 1 "<built-in>" 2
 # 1 "VMRouter.cpp" 2
 // First attempt at the VMRouter module
+//
+// Assumptions:
+// Must be even-number layer
+// Must be PS-layer
+//
 
 # 1 "./HLSFullStubLayerPS.hh" 1
 // This is the HLSFullStubLayer class, which contains, in essence the 36 bits of a full stub, with few other functions
@@ -38972,7 +38977,7 @@ struct ap_ufixed: ap_fixed_base<_AP_W, _AP_I, false, _AP_Q, _AP_O, _AP_N> {
 
 
 // Define max number of stubs an individual module can take
-const int MAX_nSTUBS = 1;
+const int MAX_nSTUBS = 64;
 
 // Define bit widths for full stub parameters (for both PS & 2S)
 typedef ap_uint<12> FullZ_Layer_PS;
@@ -38994,55 +38999,69 @@ typedef ap_uint<6> ReducedIndex;
 class HLSFullStubLayerPS
 {
 public:
+  HLSFullStubLayerPS()
+  {
+    z = 0;
+    phi = 0;
+    r = 0;
+    pt = 0;
+    real = 0;
+  }
   void AddStub(FullZ_Layer_PS newZ, FullPhi_Layer_PS newPhi, FullR_Layer_PS newR, FullPt_Layer_PS newPt)
   {
- z = newZ;
- phi = newPhi;
- r = newR;
- pt = newPt;
+    z = newZ;
+    phi = newPhi;
+    r = newR;
+    pt = newPt;
+    real = 1;
   }
   FullZ_Layer_PS GetZ()
   {
- return z;
+    return z;
   }
   FullPhi_Layer_PS GetPhi()
   {
- return phi;
+    return phi;
   }
   FullR_Layer_PS GetR()
   {
- return r;
+    return r;
   }
   FullPt_Layer_PS GetPt()
   {
- return pt;
+    return pt;
+  }
+  bool GetReal()
+  {
+    return real;
   }
   void SetZ(FullZ_Layer_PS newZ)
   {
- z = newZ;
+    z = newZ;
   }
   void SetPhi(FullPhi_Layer_PS newPhi)
   {
-   phi = newPhi;
+    phi = newPhi;
   }
   void SetR(FullR_Layer_PS newR)
   {
-   r = newR;
+    r = newR;
   }
   void SetPt(FullPt_Layer_PS newPt)
   {
-   pt = newPt;
+    pt = newPt;
   }
 private:
   FullZ_Layer_PS z;
   FullPhi_Layer_PS phi;
   FullR_Layer_PS r;
   FullPt_Layer_PS pt;
+  bool real;
 };
-# 3 "VMRouter.cpp" 2
+# 8 "VMRouter.cpp" 2
 
 # 1 "./VMRouter.hh" 1
-// VMRouter header file. Have to declare functions before use? C++ is more different from C than I thought
+// VMRouter header file.
 
 
 
@@ -39055,53 +39074,67 @@ private:
 class HLSReducedStubLayer
 {
 public:
+  HLSReducedStubLayer()
+  {
+    z = 0;
+    phi = 0;
+    r = 0;
+    pt = 0;
+    index = 0;
+    real = 0;
+  }
   void AddStub(ReducedZ_Layer newZ, ReducedPhi_Layer newPhi, ReducedR_Layer newR, ReducedPt_Layer newPt, ReducedIndex newIndex)
   {
- z = newZ;
- phi = newPhi;
- r = newR;
- pt = newPt;
- index = newIndex;
+    z = newZ;
+    phi = newPhi;
+    r = newR;
+    pt = newPt;
+    index = newIndex;
+    real = 1;
   }
   ReducedZ_Layer GetZ()
   {
- return z;
+    return z;
   }
   ReducedPhi_Layer GetPhi()
   {
- return phi;
+    return phi;
   }
   ReducedR_Layer GetR()
   {
- return r;
+    return r;
   }
   ReducedPt_Layer GetPt()
   {
- return pt;
+    return pt;
   }
   ReducedIndex GetIndex()
   {
- return index;
+    return index;
+  }
+  bool GetReal()
+  {
+    return real;
   }
   void SetZ(ReducedZ_Layer newZ)
   {
- z = newZ;
+    z = newZ;
   }
   void SetPhi(ReducedPhi_Layer newPhi)
   {
-   phi = newPhi;
+    phi = newPhi;
   }
   void SetR(ReducedR_Layer newR)
   {
-   r = newR;
+    r = newR;
   }
   void SetPt(ReducedPt_Layer newPt)
   {
-   pt = newPt;
+    pt = newPt;
   }
   void SetIndex(ReducedIndex newIndex)
   {
- index = newIndex;
+    index = newIndex;
   }
 private:
   ReducedZ_Layer z;
@@ -39109,6 +39142,7 @@ private:
   ReducedR_Layer r;
   ReducedPt_Layer pt;
   ReducedIndex index;
+  bool real;
 };
 # 6 "./VMRouter.hh" 2
 # 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 1 3
@@ -42423,10 +42457,17 @@ namespace std __attribute__ ((__visibility__ ("default")))
 using namespace std;
 
 void VMRouter(HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS],
-        HLSFullStubLayerPS allStubs[MAX_nSTUBS],
-     HLSReducedStubLayer vmStubsPH1Z1[MAX_nSTUBS],
-     HLSReducedStubLayer vmStubsPH1Z2[MAX_nSTUBS]);
-# 5 "VMRouter.cpp" 2
+              HLSFullStubLayerPS allStubs[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH1Z1[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH2Z1[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH3Z1[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH4Z1[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH1Z2[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH2Z2[MAX_nSTUBS],
+       HLSReducedStubLayer vmStubsPH3Z2[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH4Z2[MAX_nSTUBS],
+              int nStubs);
+# 10 "VMRouter.cpp" 2
 
 
 # 1 "/usr/include/stdio.h" 1 3 4
@@ -43569,14 +43610,21 @@ extern void funlockfile (FILE *__stream) throw ();
    several optimizing inline functions and macros.  */
 # 943 "/usr/include/stdio.h" 3 4
 }
-# 8 "VMRouter.cpp" 2
+# 13 "VMRouter.cpp" 2
 
 using namespace std;
 
 void VMRouter(HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS],
-        HLSFullStubLayerPS allStubs[MAX_nSTUBS],
-     HLSReducedStubLayer vmStubsPH1Z1[MAX_nSTUBS],
-     HLSReducedStubLayer vmStubsPH1Z2[MAX_nSTUBS])
+              HLSFullStubLayerPS allStubs[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH1Z1[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH2Z1[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH3Z1[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH4Z1[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH1Z2[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH2Z2[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH3Z2[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH4Z2[MAX_nSTUBS],
+              int nStubs)
 {
   // Declare variables
   FullZ_Layer_PS curZ;
@@ -43591,42 +43639,158 @@ void VMRouter(HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS],
 
   ReducedIndex index;
 
+  ap_uint<2> routePhi;
+  ap_uint<1> routeZ;
+
+  ReducedIndex nPH1Z1, nPH2Z1, nPH3Z1, nPH4Z1, nPH1Z2, nPH2Z2, nPH3Z2, nPH4Z2;
+  nPH1Z1 = 0;
+  nPH2Z1 = 0;
+  nPH3Z1 = 0;
+  nPH4Z1 = 0;
+  nPH1Z2 = 0;
+  nPH2Z2 = 0;
+  nPH3Z2 = 0;
+  nPH4Z2 = 0;
+
   index = 0;
   for (int i=0; i<MAX_nSTUBS; i++)
   {
   //#pragma HLS PIPELINE II=1
   //#pragma HLS UNROLL
- // Extract stub parameters
- curZ = stubsInLayer[i].GetZ();
- curPhi = stubsInLayer[i].GetPhi();
- curR = stubsInLayer[i].GetR();
- curPt = stubsInLayer[i].GetPt();
+    if (i < nStubs)
+    {
+      // Extract stub parameters
+      curZ = stubsInLayer[i].GetZ();
+      curPhi = stubsInLayer[i].GetPhi();
+      curR = stubsInLayer[i].GetR();
+      curPt = stubsInLayer[i].GetPt();
 
- // Rewrite stub parameters to new stub in allStubs
- allStubs[i].AddStub(curZ,curPhi,curR,curPt);
+      // Rewrite stub parameters to new stub in allStubs
+      allStubs[i].AddStub(curZ,curPhi,curR,curPt);
 
- // Calculate reduced-format parameters. A more efficient way of doing this may exist
- redZ.set_bit(0,curZ.get_bit(5));
- redZ.set_bit(1,curZ.get_bit(6));
- redZ.set_bit(2,curZ.get_bit(7));
- redZ.set_bit(3,curZ.get_bit(8));
- redPhi.set_bit(0,curPhi.get_bit(9));
- redPhi.set_bit(1,curPhi.get_bit(10));
- redPhi.set_bit(2,!curPhi.get_bit(11));
- redR.set_bit(0,curR.get_bit(5));
- redR.set_bit(1,curR.get_bit(6));
- redPt = curPt;
+      // Calculate reduced-format parameters. A more efficient way of doing this may exist
+      redZ.set_bit(0,curZ.get_bit(5));
+      redZ.set_bit(1,curZ.get_bit(6));
+      redZ.set_bit(2,curZ.get_bit(7));
+      redZ.set_bit(3,curZ.get_bit(8));
+      redPhi.set_bit(0,curPhi.get_bit(9));
+      redPhi.set_bit(1,curPhi.get_bit(10));
+      redPhi.set_bit(2,curPhi.get_bit(11));
+      redR.set_bit(0,curR.get_bit(5));
+      redR.set_bit(1,curR.get_bit(6));
+      redPt = curPt;
 
- // Write reduced stub parameters to reduced stub object and add it to a sample stub list (routing code will happen later)
- switch(redZ)
- {
-   case 0 :
-  vmStubsPH1Z1[i].AddStub(redZ, redPhi, redR, redPt, index);
-     break;
-   default :
-  vmStubsPH1Z2[i].AddStub(redZ, redPhi, redR, redPt, index);
-  break;
- }
-    index ++;
+      // Calculate routing parameters (only works for even layers for now)
+      routePhi.set_bit(0,curPhi.get_bit(12));
+      routePhi.set_bit(1,curPhi.get_bit(13));
+      routeZ.set_bit(0,curZ.get_bit(9));
+
+      // Route stubs
+      // (I tried nested switch blocks, couldn't get it to work for some reason)
+      switch (routeZ)
+      {
+        case 0:
+          switch (routePhi)
+          {
+            case 0:
+              vmStubsPH1Z1[nPH1Z1].AddStub(redZ, redPhi, redR, redPt, index);
+              nPH1Z1++;
+              break;
+            case 1:
+              vmStubsPH2Z1[nPH2Z1].AddStub(redZ, redPhi, redR, redPt, index);
+              nPH2Z1++;
+              break;
+            case 2:
+              vmStubsPH3Z1[nPH3Z1].AddStub(redZ, redPhi, redR, redPt, index);
+              nPH3Z1++;
+              break;
+            case 3:
+              vmStubsPH4Z1[nPH4Z1].AddStub(redZ, redPhi, redR, redPt, index);
+              nPH4Z1++;
+              break;
+          }
+          break;
+        case 1:
+          switch (routePhi)
+          {
+            case 0:
+              vmStubsPH1Z2[nPH1Z2].AddStub(redZ, redPhi, redR, redPt, index);
+              nPH1Z2++;
+              break;
+            case 1:
+              vmStubsPH2Z2[nPH2Z2].AddStub(redZ, redPhi, redR, redPt, index);
+              nPH2Z2++;
+              break;
+            case 2:
+              vmStubsPH3Z2[nPH3Z2].AddStub(redZ, redPhi, redR, redPt, index);
+              nPH3Z2++;
+              break;
+            case 3:
+              vmStubsPH4Z2[nPH4Z2].AddStub(redZ, redPhi, redR, redPt, index);
+              nPH4Z2++;
+              break;
+          }
+          break;
+      }
+
+
+
+      /*
+
+
+
+
+      if (routeZ == 0)
+      {
+        if (routePhi == 0)
+        {
+          vmStubsPH1Z1[nPH1Z1].AddStub(redZ, redPhi, redR, redPt, index);
+          nPH1Z1++;
+        } else if (routePhi == 1)
+        {
+          vmStubsPH2Z1[nPH2Z1].AddStub(redZ, redPhi, redR, redPt, index);
+          nPH2Z1++;
+        } else if (routePhi == 2)
+        {
+          vmStubsPH3Z1[nPH3Z1].AddStub(redZ, redPhi, redR, redPt, index);
+          nPH3Z1++;
+        } else if (routePhi == 3)
+        {
+          vmStubsPH4Z1[nPH4Z1].AddStub(redZ, redPhi, redR, redPt, index);
+          nPH4Z1++;
+        } else
+        {
+          printf("FirstBlock index = %d\n",index.to_int());
+        }
+      } else if (routeZ == 0)
+      {
+        if (routePhi == 0)
+        {
+          vmStubsPH1Z1[nPH1Z1].AddStub(redZ, redPhi, redR, redPt, index);
+          nPH1Z1++;
+        } else if (routePhi == 1)
+        {
+          vmStubsPH2Z1[nPH2Z1].AddStub(redZ, redPhi, redR, redPt, index);
+          nPH2Z1++;
+        } else if (routePhi == 2)
+        {
+          vmStubsPH3Z1[nPH3Z1].AddStub(redZ, redPhi, redR, redPt, index);
+          nPH3Z1++;
+        } else if (routePhi == 3)
+        {
+          vmStubsPH4Z1[nPH4Z1].AddStub(redZ, redPhi, redR, redPt, index);
+          nPH4Z1++;
+        } else
+        {
+          printf("SecondBlock index = %d\n",index.to_int());
+        }
+      } else
+      {
+        printf("TotalBlock; index = %d || routeZ = %d\n",index.to_int(),routeZ.to_int());
+
+      }
+      */
+      index ++;
+    }
   }
 }

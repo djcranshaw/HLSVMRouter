@@ -6,49 +6,63 @@
 class HLSFullStubLayerPS
 {
 public:
+  HLSFullStubLayerPS()
+  {
+    z = 0;
+    phi = 0;
+    r = 0;
+    pt = 0;
+    real = 0;
+  }
   void AddStub(FullZ_Layer_PS newZ, FullPhi_Layer_PS newPhi, FullR_Layer_PS newR, FullPt_Layer_PS newPt)
   {
-	z = newZ;
-	phi = newPhi;
-	r = newR;
-	pt = newPt;
+    z = newZ;
+    phi = newPhi;
+    r = newR;
+    pt = newPt;
+    real = 1;
   }
   FullZ_Layer_PS GetZ()
   {
-	return z;
+    return z;
   }
   FullPhi_Layer_PS GetPhi()
   {
-	return phi;
+    return phi;
   }
   FullR_Layer_PS GetR()
   {
-	return r;
+    return r;
   }
   FullPt_Layer_PS GetPt()
   {
-	return pt;
+    return pt;
+  }
+  bool GetReal()
+  {
+    return real;
   }
   void SetZ(FullZ_Layer_PS newZ)
   {
-	z = newZ;
+    z = newZ;
   }
   void SetPhi(FullPhi_Layer_PS newPhi)
   {
-  	phi = newPhi;
+    phi = newPhi;
   }
   void SetR(FullR_Layer_PS newR)
   {
-  	r = newR;
+    r = newR;
   }
   void SetPt(FullPt_Layer_PS newPt)
   {
-  	pt = newPt;
+    pt = newPt;
   }
 private:
   FullZ_Layer_PS z;
   FullPhi_Layer_PS phi;
   FullR_Layer_PS r;
   FullPt_Layer_PS pt;
+  bool real;
 };
 

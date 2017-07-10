@@ -5,53 +5,67 @@
 class HLSReducedStubLayer
 {
 public:
+  HLSReducedStubLayer()
+  {
+    z = 0;
+    phi = 0;
+    r = 0;
+    pt = 0;
+    index = 0;
+    real = 0;
+  }
   void AddStub(ReducedZ_Layer newZ, ReducedPhi_Layer newPhi, ReducedR_Layer newR, ReducedPt_Layer newPt, ReducedIndex newIndex)
   {
-	z = newZ;
-	phi = newPhi;
-	r = newR;
-	pt = newPt;
-	index = newIndex;
+    z = newZ;
+    phi = newPhi;
+    r = newR;
+    pt = newPt;
+    index = newIndex;
+    real = 1;
   }
   ReducedZ_Layer GetZ()
   {
-	return z;
+    return z;
   }
   ReducedPhi_Layer GetPhi()
   {
-	return phi;
+    return phi;
   }
   ReducedR_Layer GetR()
   {
-	return r;
+    return r;
   }
   ReducedPt_Layer GetPt()
   {
-	return pt;
+    return pt;
   }
   ReducedIndex GetIndex()
   {
-	return index;
+    return index;
+  }
+  bool GetReal()
+  {
+    return real;
   }
   void SetZ(ReducedZ_Layer newZ)
   {
-	z = newZ;
+    z = newZ;
   }
   void SetPhi(ReducedPhi_Layer newPhi)
   {
-  	phi = newPhi;
+    phi = newPhi;
   }
   void SetR(ReducedR_Layer newR)
   {
-  	r = newR;
+    r = newR;
   }
   void SetPt(ReducedPt_Layer newPt)
   {
-  	pt = newPt;
+    pt = newPt;
   }
   void SetIndex(ReducedIndex newIndex)
   {
-	index = newIndex;
+    index = newIndex;
   }
 private:
   ReducedZ_Layer z;
@@ -59,5 +73,6 @@ private:
   ReducedR_Layer r;
   ReducedPt_Layer pt;
   ReducedIndex index;
+  bool real;
 };
 
