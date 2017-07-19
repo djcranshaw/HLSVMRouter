@@ -1,0 +1,915 @@
+
+
+================================================================
+== Vivado HLS Report for 'VMRouter'
+================================================================
+* Date:           Fri Jul 14 14:29:40 2017
+
+* Version:        2016.1 (Build 1538259 on Fri Apr 08 16:12:49 MDT 2016)
+* Project:        VMRouter_prj2
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1927-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.16|      3.50|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    4|   43|    5|   44|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+--------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  |  Trip  |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  |  Count | Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+--------+----------+
+        |- Loop 1  |    2|   41|         3|          1|          1| 1 ~ 40 |    yes   |
+        +----------+-----+-----+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 5
+* Pipeline: 1
+  Pipeline-0: II = 1, D = 3, States = { 2 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	5  / (!tmp) | (tmp & !tmp_1)
+	3  / (tmp & tmp_1)
+3 --> 
+	4  / true
+4 --> 
+	2  / true
+5 --> 
+* FSM state operations: 
+
+ <State 1>: 0.89ns
+ST_1: nPH4Z2_V_1 [1/1] 0.00ns
+:0  %nPH4Z2_V_1 = alloca i6
+
+ST_1: nPH3Z2_V_1 [1/1] 0.00ns
+:1  %nPH3Z2_V_1 = alloca i6
+
+ST_1: nPH2Z2_V_1 [1/1] 0.00ns
+:2  %nPH2Z2_V_1 = alloca i6
+
+ST_1: nPH1Z2_V_1 [1/1] 0.00ns
+:3  %nPH1Z2_V_1 = alloca i6
+
+ST_1: nPH4Z1_V_1 [1/1] 0.00ns
+:4  %nPH4Z1_V_1 = alloca i6
+
+ST_1: nPH3Z1_V_1 [1/1] 0.00ns
+:5  %nPH3Z1_V_1 = alloca i6
+
+ST_1: nPH2Z1_V_1 [1/1] 0.00ns
+:6  %nPH2Z1_V_1 = alloca i6
+
+ST_1: nPH1Z1_V_1 [1/1] 0.00ns
+:7  %nPH1Z1_V_1 = alloca i6
+
+ST_1: stg_14 [1/1] 0.00ns
+:8  call void (...)* @_ssdm_op_SpecBitsMap([40 x i12]* %stubsInLayer_z_V), !map !67
+
+ST_1: stg_15 [1/1] 0.00ns
+:9  call void (...)* @_ssdm_op_SpecBitsMap([40 x i14]* %stubsInLayer_phi_V), !map !73
+
+ST_1: stg_16 [1/1] 0.00ns
+:10  call void (...)* @_ssdm_op_SpecBitsMap([40 x i7]* %stubsInLayer_r_V), !map !77
+
+ST_1: stg_17 [1/1] 0.00ns
+:11  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %stubsInLayer_pt_V), !map !81
+
+ST_1: stg_18 [1/1] 0.00ns
+:12  call void (...)* @_ssdm_op_SpecBitsMap([40 x i1]* %stubsInLayer_real), !map !85
+
+ST_1: stg_19 [1/1] 0.00ns
+:13  call void (...)* @_ssdm_op_SpecBitsMap([40 x i12]* %allStubs_z_V), !map !89
+
+ST_1: stg_20 [1/1] 0.00ns
+:14  call void (...)* @_ssdm_op_SpecBitsMap([40 x i14]* %allStubs_phi_V), !map !93
+
+ST_1: stg_21 [1/1] 0.00ns
+:15  call void (...)* @_ssdm_op_SpecBitsMap([40 x i7]* %allStubs_r_V), !map !97
+
+ST_1: stg_22 [1/1] 0.00ns
+:16  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %allStubs_pt_V), !map !101
+
+ST_1: stg_23 [1/1] 0.00ns
+:17  call void (...)* @_ssdm_op_SpecBitsMap([40 x i1]* %allStubs_real), !map !105
+
+ST_1: stg_24 [1/1] 0.00ns
+:18  call void (...)* @_ssdm_op_SpecBitsMap([40 x i4]* %vmStubsPH1Z1_z_V), !map !109
+
+ST_1: stg_25 [1/1] 0.00ns
+:19  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH1Z1_phi_V), !map !113
+
+ST_1: stg_26 [1/1] 0.00ns
+:20  call void (...)* @_ssdm_op_SpecBitsMap([40 x i2]* %vmStubsPH1Z1_r_V), !map !117
+
+ST_1: stg_27 [1/1] 0.00ns
+:21  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH1Z1_pt_V), !map !121
+
+ST_1: stg_28 [1/1] 0.00ns
+:22  call void (...)* @_ssdm_op_SpecBitsMap([40 x i6]* %vmStubsPH1Z1_index_V), !map !125
+
+ST_1: stg_29 [1/1] 0.00ns
+:23  call void (...)* @_ssdm_op_SpecBitsMap([40 x i1]* %vmStubsPH1Z1_real), !map !129
+
+ST_1: stg_30 [1/1] 0.00ns
+:24  call void (...)* @_ssdm_op_SpecBitsMap([40 x i4]* %vmStubsPH2Z1_z_V), !map !133
+
+ST_1: stg_31 [1/1] 0.00ns
+:25  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH2Z1_phi_V), !map !137
+
+ST_1: stg_32 [1/1] 0.00ns
+:26  call void (...)* @_ssdm_op_SpecBitsMap([40 x i2]* %vmStubsPH2Z1_r_V), !map !141
+
+ST_1: stg_33 [1/1] 0.00ns
+:27  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH2Z1_pt_V), !map !145
+
+ST_1: stg_34 [1/1] 0.00ns
+:28  call void (...)* @_ssdm_op_SpecBitsMap([40 x i6]* %vmStubsPH2Z1_index_V), !map !149
+
+ST_1: stg_35 [1/1] 0.00ns
+:29  call void (...)* @_ssdm_op_SpecBitsMap([40 x i1]* %vmStubsPH2Z1_real), !map !153
+
+ST_1: stg_36 [1/1] 0.00ns
+:30  call void (...)* @_ssdm_op_SpecBitsMap([40 x i4]* %vmStubsPH3Z1_z_V), !map !157
+
+ST_1: stg_37 [1/1] 0.00ns
+:31  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH3Z1_phi_V), !map !161
+
+ST_1: stg_38 [1/1] 0.00ns
+:32  call void (...)* @_ssdm_op_SpecBitsMap([40 x i2]* %vmStubsPH3Z1_r_V), !map !165
+
+ST_1: stg_39 [1/1] 0.00ns
+:33  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH3Z1_pt_V), !map !169
+
+ST_1: stg_40 [1/1] 0.00ns
+:34  call void (...)* @_ssdm_op_SpecBitsMap([40 x i6]* %vmStubsPH3Z1_index_V), !map !173
+
+ST_1: stg_41 [1/1] 0.00ns
+:35  call void (...)* @_ssdm_op_SpecBitsMap([40 x i1]* %vmStubsPH3Z1_real), !map !177
+
+ST_1: stg_42 [1/1] 0.00ns
+:36  call void (...)* @_ssdm_op_SpecBitsMap([40 x i4]* %vmStubsPH4Z1_z_V), !map !181
+
+ST_1: stg_43 [1/1] 0.00ns
+:37  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH4Z1_phi_V), !map !185
+
+ST_1: stg_44 [1/1] 0.00ns
+:38  call void (...)* @_ssdm_op_SpecBitsMap([40 x i2]* %vmStubsPH4Z1_r_V), !map !189
+
+ST_1: stg_45 [1/1] 0.00ns
+:39  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH4Z1_pt_V), !map !193
+
+ST_1: stg_46 [1/1] 0.00ns
+:40  call void (...)* @_ssdm_op_SpecBitsMap([40 x i6]* %vmStubsPH4Z1_index_V), !map !197
+
+ST_1: stg_47 [1/1] 0.00ns
+:41  call void (...)* @_ssdm_op_SpecBitsMap([40 x i1]* %vmStubsPH4Z1_real), !map !201
+
+ST_1: stg_48 [1/1] 0.00ns
+:42  call void (...)* @_ssdm_op_SpecBitsMap([40 x i4]* %vmStubsPH1Z2_z_V), !map !205
+
+ST_1: stg_49 [1/1] 0.00ns
+:43  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH1Z2_phi_V), !map !209
+
+ST_1: stg_50 [1/1] 0.00ns
+:44  call void (...)* @_ssdm_op_SpecBitsMap([40 x i2]* %vmStubsPH1Z2_r_V), !map !213
+
+ST_1: stg_51 [1/1] 0.00ns
+:45  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH1Z2_pt_V), !map !217
+
+ST_1: stg_52 [1/1] 0.00ns
+:46  call void (...)* @_ssdm_op_SpecBitsMap([40 x i6]* %vmStubsPH1Z2_index_V), !map !221
+
+ST_1: stg_53 [1/1] 0.00ns
+:47  call void (...)* @_ssdm_op_SpecBitsMap([40 x i1]* %vmStubsPH1Z2_real), !map !225
+
+ST_1: stg_54 [1/1] 0.00ns
+:48  call void (...)* @_ssdm_op_SpecBitsMap([40 x i4]* %vmStubsPH2Z2_z_V), !map !229
+
+ST_1: stg_55 [1/1] 0.00ns
+:49  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH2Z2_phi_V), !map !233
+
+ST_1: stg_56 [1/1] 0.00ns
+:50  call void (...)* @_ssdm_op_SpecBitsMap([40 x i2]* %vmStubsPH2Z2_r_V), !map !237
+
+ST_1: stg_57 [1/1] 0.00ns
+:51  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH2Z2_pt_V), !map !241
+
+ST_1: stg_58 [1/1] 0.00ns
+:52  call void (...)* @_ssdm_op_SpecBitsMap([40 x i6]* %vmStubsPH2Z2_index_V), !map !245
+
+ST_1: stg_59 [1/1] 0.00ns
+:53  call void (...)* @_ssdm_op_SpecBitsMap([40 x i1]* %vmStubsPH2Z2_real), !map !249
+
+ST_1: stg_60 [1/1] 0.00ns
+:54  call void (...)* @_ssdm_op_SpecBitsMap([40 x i4]* %vmStubsPH3Z2_z_V), !map !253
+
+ST_1: stg_61 [1/1] 0.00ns
+:55  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH3Z2_phi_V), !map !257
+
+ST_1: stg_62 [1/1] 0.00ns
+:56  call void (...)* @_ssdm_op_SpecBitsMap([40 x i2]* %vmStubsPH3Z2_r_V), !map !261
+
+ST_1: stg_63 [1/1] 0.00ns
+:57  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH3Z2_pt_V), !map !265
+
+ST_1: stg_64 [1/1] 0.00ns
+:58  call void (...)* @_ssdm_op_SpecBitsMap([40 x i6]* %vmStubsPH3Z2_index_V), !map !269
+
+ST_1: stg_65 [1/1] 0.00ns
+:59  call void (...)* @_ssdm_op_SpecBitsMap([40 x i1]* %vmStubsPH3Z2_real), !map !273
+
+ST_1: stg_66 [1/1] 0.00ns
+:60  call void (...)* @_ssdm_op_SpecBitsMap([40 x i4]* %vmStubsPH4Z2_z_V), !map !277
+
+ST_1: stg_67 [1/1] 0.00ns
+:61  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH4Z2_phi_V), !map !281
+
+ST_1: stg_68 [1/1] 0.00ns
+:62  call void (...)* @_ssdm_op_SpecBitsMap([40 x i2]* %vmStubsPH4Z2_r_V), !map !285
+
+ST_1: stg_69 [1/1] 0.00ns
+:63  call void (...)* @_ssdm_op_SpecBitsMap([40 x i3]* %vmStubsPH4Z2_pt_V), !map !289
+
+ST_1: stg_70 [1/1] 0.00ns
+:64  call void (...)* @_ssdm_op_SpecBitsMap([40 x i6]* %vmStubsPH4Z2_index_V), !map !293
+
+ST_1: stg_71 [1/1] 0.00ns
+:65  call void (...)* @_ssdm_op_SpecBitsMap([40 x i1]* %vmStubsPH4Z2_real), !map !297
+
+ST_1: stg_72 [1/1] 0.00ns
+:66  call void (...)* @_ssdm_op_SpecBitsMap(i32 %nStubs), !map !301
+
+ST_1: stg_73 [1/1] 0.00ns
+:67  call void (...)* @_ssdm_op_SpecTopModule([9 x i8]* @VMRouter_str) nounwind
+
+ST_1: nStubs_read [1/1] 0.00ns
+:68  %nStubs_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %nStubs)
+
+ST_1: stg_75 [1/1] 0.89ns
+:69  store i6 0, i6* %nPH1Z1_V_1
+
+ST_1: stg_76 [1/1] 0.89ns
+:70  store i6 0, i6* %nPH2Z1_V_1
+
+ST_1: stg_77 [1/1] 0.89ns
+:71  store i6 0, i6* %nPH3Z1_V_1
+
+ST_1: stg_78 [1/1] 0.89ns
+:72  store i6 0, i6* %nPH4Z1_V_1
+
+ST_1: stg_79 [1/1] 0.89ns
+:73  store i6 0, i6* %nPH1Z2_V_1
+
+ST_1: stg_80 [1/1] 0.89ns
+:74  store i6 0, i6* %nPH2Z2_V_1
+
+ST_1: stg_81 [1/1] 0.89ns
+:75  store i6 0, i6* %nPH3Z2_V_1
+
+ST_1: stg_82 [1/1] 0.89ns
+:76  store i6 0, i6* %nPH4Z2_V_1
+
+ST_1: stg_83 [1/1] 0.89ns
+:77  br label %1
+
+
+ <State 2>: 2.39ns
+ST_2: op2_V_read_assign [1/1] 0.00ns
+:0  %op2_V_read_assign = phi i6 [ 0, %0 ], [ %index_V, %._crit_edge ]
+
+ST_2: tmp [1/1] 1.16ns
+:1  %tmp = icmp ult i6 %op2_V_read_assign, -24
+
+ST_2: index_V [1/1] 1.27ns
+:2  %index_V = add i6 %op2_V_read_assign, 1
+
+ST_2: stg_87 [1/1] 0.00ns
+:3  br i1 %tmp, label %2, label %.loopexit
+
+ST_2: i_cast1 [1/1] 0.00ns
+:0  %i_cast1 = zext i6 %op2_V_read_assign to i32
+
+ST_2: empty [1/1] 0.00ns
+:1  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 1, i64 40, i64 20)
+
+ST_2: tmp_3 [1/1] 0.00ns
+:2  %tmp_3 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str)
+
+ST_2: stg_91 [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_2: tmp_1 [1/1] 1.41ns
+:4  %tmp_1 = icmp slt i32 %i_cast1, %nStubs_read
+
+ST_2: stg_93 [1/1] 0.00ns
+:5  br i1 %tmp_1, label %3, label %.loopexit
+
+ST_2: tmp_2 [1/1] 0.00ns
+:0  %tmp_2 = zext i6 %op2_V_read_assign to i64
+
+ST_2: stubsInLayer_z_V_addr [1/1] 0.00ns
+:1  %stubsInLayer_z_V_addr = getelementptr [40 x i12]* %stubsInLayer_z_V, i64 0, i64 %tmp_2
+
+ST_2: stubsInLayer_phi_V_addr [1/1] 0.00ns
+:2  %stubsInLayer_phi_V_addr = getelementptr [40 x i14]* %stubsInLayer_phi_V, i64 0, i64 %tmp_2
+
+ST_2: stubsInLayer_r_V_addr [1/1] 0.00ns
+:3  %stubsInLayer_r_V_addr = getelementptr [40 x i7]* %stubsInLayer_r_V, i64 0, i64 %tmp_2
+
+ST_2: stubsInLayer_pt_V_addr [1/1] 0.00ns
+:4  %stubsInLayer_pt_V_addr = getelementptr [40 x i3]* %stubsInLayer_pt_V, i64 0, i64 %tmp_2
+
+ST_2: p_Val2_s [2/2] 2.39ns
+:5  %p_Val2_s = load i12* %stubsInLayer_z_V_addr, align 2
+
+ST_2: p_Val2_1 [2/2] 2.39ns
+:6  %p_Val2_1 = load i14* %stubsInLayer_phi_V_addr, align 2
+
+ST_2: p_Val2_2 [2/2] 2.39ns
+:7  %p_Val2_2 = load i7* %stubsInLayer_r_V_addr, align 1
+
+ST_2: redPt_V [2/2] 2.39ns
+:8  %redPt_V = load i3* %stubsInLayer_pt_V_addr, align 1
+
+
+ <State 3>: 3.50ns
+ST_3: p_Val2_s [1/2] 2.39ns
+:5  %p_Val2_s = load i12* %stubsInLayer_z_V_addr, align 2
+
+ST_3: p_Val2_1 [1/2] 2.39ns
+:6  %p_Val2_1 = load i14* %stubsInLayer_phi_V_addr, align 2
+
+ST_3: p_Val2_2 [1/2] 2.39ns
+:7  %p_Val2_2 = load i7* %stubsInLayer_r_V_addr, align 1
+
+ST_3: redPt_V [1/2] 2.39ns
+:8  %redPt_V = load i3* %stubsInLayer_pt_V_addr, align 1
+
+ST_3: p_Result_s [1/1] 0.00ns
+:19  %p_Result_s = call i4 @_ssdm_op_PartSelect.i4.i12.i32.i32(i12 %p_Val2_s, i32 5, i32 8)
+
+ST_3: p_Result_1 [1/1] 0.00ns
+:20  %p_Result_1 = call i3 @_ssdm_op_PartSelect.i3.i14.i32.i32(i14 %p_Val2_1, i32 9, i32 11)
+
+ST_3: p_Result_2 [1/1] 0.00ns
+:21  %p_Result_2 = call i2 @_ssdm_op_PartSelect.i2.i7.i32.i32(i7 %p_Val2_2, i32 5, i32 6)
+
+ST_3: p_Result_3 [1/1] 0.00ns
+:22  %p_Result_3 = call i2 @_ssdm_op_PartSelect.i2.i14.i32.i32(i14 %p_Val2_1, i32 12, i32 13)
+
+ST_3: routeZ_V [1/1] 0.00ns
+:23  %routeZ_V = call i1 @_ssdm_op_BitSelect.i1.i12.i32(i12 %p_Val2_s, i32 9)
+
+ST_3: stg_112 [1/1] 0.00ns
+:24  br i1 %routeZ_V, label %9, label %4
+
+ST_3: stg_113 [1/1] 1.11ns
+:0  switch i2 %p_Result_3, label %._crit_edge [
+    i2 0, label %5
+    i2 1, label %6
+    i2 -2, label %7
+    i2 -1, label %8
+  ]
+
+ST_3: stg_114 [1/1] 0.00ns
+:16  br label %._crit_edge
+
+ST_3: stg_115 [1/1] 0.00ns
+:16  br label %._crit_edge
+
+ST_3: stg_116 [1/1] 0.00ns
+:16  br label %._crit_edge
+
+ST_3: stg_117 [1/1] 0.00ns
+:16  br label %._crit_edge
+
+ST_3: stg_118 [1/1] 1.11ns
+:0  switch i2 %p_Result_3, label %._crit_edge [
+    i2 0, label %10
+    i2 1, label %11
+    i2 -2, label %12
+    i2 -1, label %13
+  ]
+
+ST_3: stg_119 [1/1] 0.00ns
+:16  br label %._crit_edge
+
+ST_3: stg_120 [1/1] 0.00ns
+:16  br label %._crit_edge
+
+ST_3: stg_121 [1/1] 0.00ns
+:16  br label %._crit_edge
+
+ST_3: stg_122 [1/1] 0.00ns
+:16  br label %._crit_edge
+
+
+ <State 4>: 2.39ns
+ST_4: allStubs_z_V_addr [1/1] 0.00ns
+:9  %allStubs_z_V_addr = getelementptr [40 x i12]* %allStubs_z_V, i64 0, i64 %tmp_2
+
+ST_4: allStubs_phi_V_addr [1/1] 0.00ns
+:10  %allStubs_phi_V_addr = getelementptr [40 x i14]* %allStubs_phi_V, i64 0, i64 %tmp_2
+
+ST_4: allStubs_r_V_addr [1/1] 0.00ns
+:11  %allStubs_r_V_addr = getelementptr [40 x i7]* %allStubs_r_V, i64 0, i64 %tmp_2
+
+ST_4: allStubs_pt_V_addr [1/1] 0.00ns
+:12  %allStubs_pt_V_addr = getelementptr [40 x i3]* %allStubs_pt_V, i64 0, i64 %tmp_2
+
+ST_4: allStubs_real_addr [1/1] 0.00ns
+:13  %allStubs_real_addr = getelementptr [40 x i1]* %allStubs_real, i64 0, i64 %tmp_2
+
+ST_4: stg_128 [1/1] 2.39ns
+:14  store i12 %p_Val2_s, i12* %allStubs_z_V_addr, align 2
+
+ST_4: stg_129 [1/1] 2.39ns
+:15  store i14 %p_Val2_1, i14* %allStubs_phi_V_addr, align 2
+
+ST_4: stg_130 [1/1] 2.39ns
+:16  store i7 %p_Val2_2, i7* %allStubs_r_V_addr, align 1
+
+ST_4: stg_131 [1/1] 2.39ns
+:17  store i3 %redPt_V, i3* %allStubs_pt_V_addr, align 1
+
+ST_4: stg_132 [1/1] 2.39ns
+:18  store i1 true, i1* %allStubs_real_addr, align 1
+
+ST_4: nPH4Z1_V_1_load [1/1] 0.00ns
+:0  %nPH4Z1_V_1_load = load i6* %nPH4Z1_V_1
+
+ST_4: tmp_6 [1/1] 0.00ns
+:1  %tmp_6 = zext i6 %nPH4Z1_V_1_load to i64
+
+ST_4: vmStubsPH4Z1_z_V_addr [1/1] 0.00ns
+:2  %vmStubsPH4Z1_z_V_addr = getelementptr [40 x i4]* %vmStubsPH4Z1_z_V, i64 0, i64 %tmp_6
+
+ST_4: vmStubsPH4Z1_phi_V_addr [1/1] 0.00ns
+:3  %vmStubsPH4Z1_phi_V_addr = getelementptr [40 x i3]* %vmStubsPH4Z1_phi_V, i64 0, i64 %tmp_6
+
+ST_4: vmStubsPH4Z1_r_V_addr [1/1] 0.00ns
+:4  %vmStubsPH4Z1_r_V_addr = getelementptr [40 x i2]* %vmStubsPH4Z1_r_V, i64 0, i64 %tmp_6
+
+ST_4: vmStubsPH4Z1_pt_V_addr [1/1] 0.00ns
+:5  %vmStubsPH4Z1_pt_V_addr = getelementptr [40 x i3]* %vmStubsPH4Z1_pt_V, i64 0, i64 %tmp_6
+
+ST_4: vmStubsPH4Z1_index_V_addr [1/1] 0.00ns
+:6  %vmStubsPH4Z1_index_V_addr = getelementptr [40 x i6]* %vmStubsPH4Z1_index_V, i64 0, i64 %tmp_6
+
+ST_4: vmStubsPH4Z1_real_addr [1/1] 0.00ns
+:7  %vmStubsPH4Z1_real_addr = getelementptr [40 x i1]* %vmStubsPH4Z1_real, i64 0, i64 %tmp_6
+
+ST_4: stg_141 [1/1] 2.39ns
+:8  store i4 %p_Result_s, i4* %vmStubsPH4Z1_z_V_addr, align 1
+
+ST_4: stg_142 [1/1] 2.39ns
+:9  store i3 %p_Result_1, i3* %vmStubsPH4Z1_phi_V_addr, align 1
+
+ST_4: stg_143 [1/1] 2.39ns
+:10  store i2 %p_Result_2, i2* %vmStubsPH4Z1_r_V_addr, align 1
+
+ST_4: stg_144 [1/1] 2.39ns
+:11  store i3 %redPt_V, i3* %vmStubsPH4Z1_pt_V_addr, align 1
+
+ST_4: stg_145 [1/1] 2.39ns
+:12  store i6 %op2_V_read_assign, i6* %vmStubsPH4Z1_index_V_addr, align 1
+
+ST_4: stg_146 [1/1] 2.39ns
+:13  store i1 true, i1* %vmStubsPH4Z1_real_addr, align 1
+
+ST_4: nPH4Z1_V [1/1] 1.27ns
+:14  %nPH4Z1_V = add i6 %nPH4Z1_V_1_load, 1
+
+ST_4: stg_148 [1/1] 0.89ns
+:15  store i6 %nPH4Z1_V, i6* %nPH4Z1_V_1
+
+ST_4: nPH3Z1_V_1_load [1/1] 0.00ns
+:0  %nPH3Z1_V_1_load = load i6* %nPH3Z1_V_1
+
+ST_4: tmp_5 [1/1] 0.00ns
+:1  %tmp_5 = zext i6 %nPH3Z1_V_1_load to i64
+
+ST_4: vmStubsPH3Z1_z_V_addr [1/1] 0.00ns
+:2  %vmStubsPH3Z1_z_V_addr = getelementptr [40 x i4]* %vmStubsPH3Z1_z_V, i64 0, i64 %tmp_5
+
+ST_4: vmStubsPH3Z1_phi_V_addr [1/1] 0.00ns
+:3  %vmStubsPH3Z1_phi_V_addr = getelementptr [40 x i3]* %vmStubsPH3Z1_phi_V, i64 0, i64 %tmp_5
+
+ST_4: vmStubsPH3Z1_r_V_addr [1/1] 0.00ns
+:4  %vmStubsPH3Z1_r_V_addr = getelementptr [40 x i2]* %vmStubsPH3Z1_r_V, i64 0, i64 %tmp_5
+
+ST_4: vmStubsPH3Z1_pt_V_addr [1/1] 0.00ns
+:5  %vmStubsPH3Z1_pt_V_addr = getelementptr [40 x i3]* %vmStubsPH3Z1_pt_V, i64 0, i64 %tmp_5
+
+ST_4: vmStubsPH3Z1_index_V_addr [1/1] 0.00ns
+:6  %vmStubsPH3Z1_index_V_addr = getelementptr [40 x i6]* %vmStubsPH3Z1_index_V, i64 0, i64 %tmp_5
+
+ST_4: vmStubsPH3Z1_real_addr [1/1] 0.00ns
+:7  %vmStubsPH3Z1_real_addr = getelementptr [40 x i1]* %vmStubsPH3Z1_real, i64 0, i64 %tmp_5
+
+ST_4: stg_157 [1/1] 2.39ns
+:8  store i4 %p_Result_s, i4* %vmStubsPH3Z1_z_V_addr, align 1
+
+ST_4: stg_158 [1/1] 2.39ns
+:9  store i3 %p_Result_1, i3* %vmStubsPH3Z1_phi_V_addr, align 1
+
+ST_4: stg_159 [1/1] 2.39ns
+:10  store i2 %p_Result_2, i2* %vmStubsPH3Z1_r_V_addr, align 1
+
+ST_4: stg_160 [1/1] 2.39ns
+:11  store i3 %redPt_V, i3* %vmStubsPH3Z1_pt_V_addr, align 1
+
+ST_4: stg_161 [1/1] 2.39ns
+:12  store i6 %op2_V_read_assign, i6* %vmStubsPH3Z1_index_V_addr, align 1
+
+ST_4: stg_162 [1/1] 2.39ns
+:13  store i1 true, i1* %vmStubsPH3Z1_real_addr, align 1
+
+ST_4: nPH3Z1_V [1/1] 1.27ns
+:14  %nPH3Z1_V = add i6 %nPH3Z1_V_1_load, 1
+
+ST_4: stg_164 [1/1] 0.89ns
+:15  store i6 %nPH3Z1_V, i6* %nPH3Z1_V_1
+
+ST_4: nPH2Z1_V_1_load [1/1] 0.00ns
+:0  %nPH2Z1_V_1_load = load i6* %nPH2Z1_V_1
+
+ST_4: tmp_4 [1/1] 0.00ns
+:1  %tmp_4 = zext i6 %nPH2Z1_V_1_load to i64
+
+ST_4: vmStubsPH2Z1_z_V_addr [1/1] 0.00ns
+:2  %vmStubsPH2Z1_z_V_addr = getelementptr [40 x i4]* %vmStubsPH2Z1_z_V, i64 0, i64 %tmp_4
+
+ST_4: vmStubsPH2Z1_phi_V_addr [1/1] 0.00ns
+:3  %vmStubsPH2Z1_phi_V_addr = getelementptr [40 x i3]* %vmStubsPH2Z1_phi_V, i64 0, i64 %tmp_4
+
+ST_4: vmStubsPH2Z1_r_V_addr [1/1] 0.00ns
+:4  %vmStubsPH2Z1_r_V_addr = getelementptr [40 x i2]* %vmStubsPH2Z1_r_V, i64 0, i64 %tmp_4
+
+ST_4: vmStubsPH2Z1_pt_V_addr [1/1] 0.00ns
+:5  %vmStubsPH2Z1_pt_V_addr = getelementptr [40 x i3]* %vmStubsPH2Z1_pt_V, i64 0, i64 %tmp_4
+
+ST_4: vmStubsPH2Z1_index_V_addr [1/1] 0.00ns
+:6  %vmStubsPH2Z1_index_V_addr = getelementptr [40 x i6]* %vmStubsPH2Z1_index_V, i64 0, i64 %tmp_4
+
+ST_4: vmStubsPH2Z1_real_addr [1/1] 0.00ns
+:7  %vmStubsPH2Z1_real_addr = getelementptr [40 x i1]* %vmStubsPH2Z1_real, i64 0, i64 %tmp_4
+
+ST_4: stg_173 [1/1] 2.39ns
+:8  store i4 %p_Result_s, i4* %vmStubsPH2Z1_z_V_addr, align 1
+
+ST_4: stg_174 [1/1] 2.39ns
+:9  store i3 %p_Result_1, i3* %vmStubsPH2Z1_phi_V_addr, align 1
+
+ST_4: stg_175 [1/1] 2.39ns
+:10  store i2 %p_Result_2, i2* %vmStubsPH2Z1_r_V_addr, align 1
+
+ST_4: stg_176 [1/1] 2.39ns
+:11  store i3 %redPt_V, i3* %vmStubsPH2Z1_pt_V_addr, align 1
+
+ST_4: stg_177 [1/1] 2.39ns
+:12  store i6 %op2_V_read_assign, i6* %vmStubsPH2Z1_index_V_addr, align 1
+
+ST_4: stg_178 [1/1] 2.39ns
+:13  store i1 true, i1* %vmStubsPH2Z1_real_addr, align 1
+
+ST_4: nPH2Z1_V [1/1] 1.27ns
+:14  %nPH2Z1_V = add i6 %nPH2Z1_V_1_load, 1
+
+ST_4: stg_180 [1/1] 0.89ns
+:15  store i6 %nPH2Z1_V, i6* %nPH2Z1_V_1
+
+ST_4: nPH1Z1_V_1_load [1/1] 0.00ns
+:0  %nPH1Z1_V_1_load = load i6* %nPH1Z1_V_1
+
+ST_4: tmp_s [1/1] 0.00ns
+:1  %tmp_s = zext i6 %nPH1Z1_V_1_load to i64
+
+ST_4: vmStubsPH1Z1_z_V_addr [1/1] 0.00ns
+:2  %vmStubsPH1Z1_z_V_addr = getelementptr [40 x i4]* %vmStubsPH1Z1_z_V, i64 0, i64 %tmp_s
+
+ST_4: vmStubsPH1Z1_phi_V_addr [1/1] 0.00ns
+:3  %vmStubsPH1Z1_phi_V_addr = getelementptr [40 x i3]* %vmStubsPH1Z1_phi_V, i64 0, i64 %tmp_s
+
+ST_4: vmStubsPH1Z1_r_V_addr [1/1] 0.00ns
+:4  %vmStubsPH1Z1_r_V_addr = getelementptr [40 x i2]* %vmStubsPH1Z1_r_V, i64 0, i64 %tmp_s
+
+ST_4: vmStubsPH1Z1_pt_V_addr [1/1] 0.00ns
+:5  %vmStubsPH1Z1_pt_V_addr = getelementptr [40 x i3]* %vmStubsPH1Z1_pt_V, i64 0, i64 %tmp_s
+
+ST_4: vmStubsPH1Z1_index_V_addr [1/1] 0.00ns
+:6  %vmStubsPH1Z1_index_V_addr = getelementptr [40 x i6]* %vmStubsPH1Z1_index_V, i64 0, i64 %tmp_s
+
+ST_4: vmStubsPH1Z1_real_addr [1/1] 0.00ns
+:7  %vmStubsPH1Z1_real_addr = getelementptr [40 x i1]* %vmStubsPH1Z1_real, i64 0, i64 %tmp_s
+
+ST_4: stg_189 [1/1] 2.39ns
+:8  store i4 %p_Result_s, i4* %vmStubsPH1Z1_z_V_addr, align 1
+
+ST_4: stg_190 [1/1] 2.39ns
+:9  store i3 %p_Result_1, i3* %vmStubsPH1Z1_phi_V_addr, align 1
+
+ST_4: stg_191 [1/1] 2.39ns
+:10  store i2 %p_Result_2, i2* %vmStubsPH1Z1_r_V_addr, align 1
+
+ST_4: stg_192 [1/1] 2.39ns
+:11  store i3 %redPt_V, i3* %vmStubsPH1Z1_pt_V_addr, align 1
+
+ST_4: stg_193 [1/1] 2.39ns
+:12  store i6 %op2_V_read_assign, i6* %vmStubsPH1Z1_index_V_addr, align 1
+
+ST_4: stg_194 [1/1] 2.39ns
+:13  store i1 true, i1* %vmStubsPH1Z1_real_addr, align 1
+
+ST_4: nPH1Z1_V [1/1] 1.27ns
+:14  %nPH1Z1_V = add i6 %nPH1Z1_V_1_load, 1
+
+ST_4: stg_196 [1/1] 0.89ns
+:15  store i6 %nPH1Z1_V, i6* %nPH1Z1_V_1
+
+ST_4: nPH4Z2_V_1_load [1/1] 0.00ns
+:0  %nPH4Z2_V_1_load = load i6* %nPH4Z2_V_1
+
+ST_4: tmp_10 [1/1] 0.00ns
+:1  %tmp_10 = zext i6 %nPH4Z2_V_1_load to i64
+
+ST_4: vmStubsPH4Z2_z_V_addr [1/1] 0.00ns
+:2  %vmStubsPH4Z2_z_V_addr = getelementptr [40 x i4]* %vmStubsPH4Z2_z_V, i64 0, i64 %tmp_10
+
+ST_4: vmStubsPH4Z2_phi_V_addr [1/1] 0.00ns
+:3  %vmStubsPH4Z2_phi_V_addr = getelementptr [40 x i3]* %vmStubsPH4Z2_phi_V, i64 0, i64 %tmp_10
+
+ST_4: vmStubsPH4Z2_r_V_addr [1/1] 0.00ns
+:4  %vmStubsPH4Z2_r_V_addr = getelementptr [40 x i2]* %vmStubsPH4Z2_r_V, i64 0, i64 %tmp_10
+
+ST_4: vmStubsPH4Z2_pt_V_addr [1/1] 0.00ns
+:5  %vmStubsPH4Z2_pt_V_addr = getelementptr [40 x i3]* %vmStubsPH4Z2_pt_V, i64 0, i64 %tmp_10
+
+ST_4: vmStubsPH4Z2_index_V_addr [1/1] 0.00ns
+:6  %vmStubsPH4Z2_index_V_addr = getelementptr [40 x i6]* %vmStubsPH4Z2_index_V, i64 0, i64 %tmp_10
+
+ST_4: vmStubsPH4Z2_real_addr [1/1] 0.00ns
+:7  %vmStubsPH4Z2_real_addr = getelementptr [40 x i1]* %vmStubsPH4Z2_real, i64 0, i64 %tmp_10
+
+ST_4: stg_205 [1/1] 2.39ns
+:8  store i4 %p_Result_s, i4* %vmStubsPH4Z2_z_V_addr, align 1
+
+ST_4: stg_206 [1/1] 2.39ns
+:9  store i3 %p_Result_1, i3* %vmStubsPH4Z2_phi_V_addr, align 1
+
+ST_4: stg_207 [1/1] 2.39ns
+:10  store i2 %p_Result_2, i2* %vmStubsPH4Z2_r_V_addr, align 1
+
+ST_4: stg_208 [1/1] 2.39ns
+:11  store i3 %redPt_V, i3* %vmStubsPH4Z2_pt_V_addr, align 1
+
+ST_4: stg_209 [1/1] 2.39ns
+:12  store i6 %op2_V_read_assign, i6* %vmStubsPH4Z2_index_V_addr, align 1
+
+ST_4: stg_210 [1/1] 2.39ns
+:13  store i1 true, i1* %vmStubsPH4Z2_real_addr, align 1
+
+ST_4: nPH4Z2_V [1/1] 1.27ns
+:14  %nPH4Z2_V = add i6 %nPH4Z2_V_1_load, 1
+
+ST_4: stg_212 [1/1] 0.89ns
+:15  store i6 %nPH4Z2_V, i6* %nPH4Z2_V_1
+
+ST_4: nPH3Z2_V_1_load [1/1] 0.00ns
+:0  %nPH3Z2_V_1_load = load i6* %nPH3Z2_V_1
+
+ST_4: tmp_9 [1/1] 0.00ns
+:1  %tmp_9 = zext i6 %nPH3Z2_V_1_load to i64
+
+ST_4: vmStubsPH3Z2_z_V_addr [1/1] 0.00ns
+:2  %vmStubsPH3Z2_z_V_addr = getelementptr [40 x i4]* %vmStubsPH3Z2_z_V, i64 0, i64 %tmp_9
+
+ST_4: vmStubsPH3Z2_phi_V_addr [1/1] 0.00ns
+:3  %vmStubsPH3Z2_phi_V_addr = getelementptr [40 x i3]* %vmStubsPH3Z2_phi_V, i64 0, i64 %tmp_9
+
+ST_4: vmStubsPH3Z2_r_V_addr [1/1] 0.00ns
+:4  %vmStubsPH3Z2_r_V_addr = getelementptr [40 x i2]* %vmStubsPH3Z2_r_V, i64 0, i64 %tmp_9
+
+ST_4: vmStubsPH3Z2_pt_V_addr [1/1] 0.00ns
+:5  %vmStubsPH3Z2_pt_V_addr = getelementptr [40 x i3]* %vmStubsPH3Z2_pt_V, i64 0, i64 %tmp_9
+
+ST_4: vmStubsPH3Z2_index_V_addr [1/1] 0.00ns
+:6  %vmStubsPH3Z2_index_V_addr = getelementptr [40 x i6]* %vmStubsPH3Z2_index_V, i64 0, i64 %tmp_9
+
+ST_4: vmStubsPH3Z2_real_addr [1/1] 0.00ns
+:7  %vmStubsPH3Z2_real_addr = getelementptr [40 x i1]* %vmStubsPH3Z2_real, i64 0, i64 %tmp_9
+
+ST_4: stg_221 [1/1] 2.39ns
+:8  store i4 %p_Result_s, i4* %vmStubsPH3Z2_z_V_addr, align 1
+
+ST_4: stg_222 [1/1] 2.39ns
+:9  store i3 %p_Result_1, i3* %vmStubsPH3Z2_phi_V_addr, align 1
+
+ST_4: stg_223 [1/1] 2.39ns
+:10  store i2 %p_Result_2, i2* %vmStubsPH3Z2_r_V_addr, align 1
+
+ST_4: stg_224 [1/1] 2.39ns
+:11  store i3 %redPt_V, i3* %vmStubsPH3Z2_pt_V_addr, align 1
+
+ST_4: stg_225 [1/1] 2.39ns
+:12  store i6 %op2_V_read_assign, i6* %vmStubsPH3Z2_index_V_addr, align 1
+
+ST_4: stg_226 [1/1] 2.39ns
+:13  store i1 true, i1* %vmStubsPH3Z2_real_addr, align 1
+
+ST_4: nPH3Z2_V [1/1] 1.27ns
+:14  %nPH3Z2_V = add i6 %nPH3Z2_V_1_load, 1
+
+ST_4: stg_228 [1/1] 0.89ns
+:15  store i6 %nPH3Z2_V, i6* %nPH3Z2_V_1
+
+ST_4: nPH2Z2_V_1_load [1/1] 0.00ns
+:0  %nPH2Z2_V_1_load = load i6* %nPH2Z2_V_1
+
+ST_4: tmp_8 [1/1] 0.00ns
+:1  %tmp_8 = zext i6 %nPH2Z2_V_1_load to i64
+
+ST_4: vmStubsPH2Z2_z_V_addr [1/1] 0.00ns
+:2  %vmStubsPH2Z2_z_V_addr = getelementptr [40 x i4]* %vmStubsPH2Z2_z_V, i64 0, i64 %tmp_8
+
+ST_4: vmStubsPH2Z2_phi_V_addr [1/1] 0.00ns
+:3  %vmStubsPH2Z2_phi_V_addr = getelementptr [40 x i3]* %vmStubsPH2Z2_phi_V, i64 0, i64 %tmp_8
+
+ST_4: vmStubsPH2Z2_r_V_addr [1/1] 0.00ns
+:4  %vmStubsPH2Z2_r_V_addr = getelementptr [40 x i2]* %vmStubsPH2Z2_r_V, i64 0, i64 %tmp_8
+
+ST_4: vmStubsPH2Z2_pt_V_addr [1/1] 0.00ns
+:5  %vmStubsPH2Z2_pt_V_addr = getelementptr [40 x i3]* %vmStubsPH2Z2_pt_V, i64 0, i64 %tmp_8
+
+ST_4: vmStubsPH2Z2_index_V_addr [1/1] 0.00ns
+:6  %vmStubsPH2Z2_index_V_addr = getelementptr [40 x i6]* %vmStubsPH2Z2_index_V, i64 0, i64 %tmp_8
+
+ST_4: vmStubsPH2Z2_real_addr [1/1] 0.00ns
+:7  %vmStubsPH2Z2_real_addr = getelementptr [40 x i1]* %vmStubsPH2Z2_real, i64 0, i64 %tmp_8
+
+ST_4: stg_237 [1/1] 2.39ns
+:8  store i4 %p_Result_s, i4* %vmStubsPH2Z2_z_V_addr, align 1
+
+ST_4: stg_238 [1/1] 2.39ns
+:9  store i3 %p_Result_1, i3* %vmStubsPH2Z2_phi_V_addr, align 1
+
+ST_4: stg_239 [1/1] 2.39ns
+:10  store i2 %p_Result_2, i2* %vmStubsPH2Z2_r_V_addr, align 1
+
+ST_4: stg_240 [1/1] 2.39ns
+:11  store i3 %redPt_V, i3* %vmStubsPH2Z2_pt_V_addr, align 1
+
+ST_4: stg_241 [1/1] 2.39ns
+:12  store i6 %op2_V_read_assign, i6* %vmStubsPH2Z2_index_V_addr, align 1
+
+ST_4: stg_242 [1/1] 2.39ns
+:13  store i1 true, i1* %vmStubsPH2Z2_real_addr, align 1
+
+ST_4: nPH2Z2_V [1/1] 1.27ns
+:14  %nPH2Z2_V = add i6 %nPH2Z2_V_1_load, 1
+
+ST_4: stg_244 [1/1] 0.89ns
+:15  store i6 %nPH2Z2_V, i6* %nPH2Z2_V_1
+
+ST_4: nPH1Z2_V_1_load [1/1] 0.00ns
+:0  %nPH1Z2_V_1_load = load i6* %nPH1Z2_V_1
+
+ST_4: tmp_7 [1/1] 0.00ns
+:1  %tmp_7 = zext i6 %nPH1Z2_V_1_load to i64
+
+ST_4: vmStubsPH1Z2_z_V_addr [1/1] 0.00ns
+:2  %vmStubsPH1Z2_z_V_addr = getelementptr [40 x i4]* %vmStubsPH1Z2_z_V, i64 0, i64 %tmp_7
+
+ST_4: vmStubsPH1Z2_phi_V_addr [1/1] 0.00ns
+:3  %vmStubsPH1Z2_phi_V_addr = getelementptr [40 x i3]* %vmStubsPH1Z2_phi_V, i64 0, i64 %tmp_7
+
+ST_4: vmStubsPH1Z2_r_V_addr [1/1] 0.00ns
+:4  %vmStubsPH1Z2_r_V_addr = getelementptr [40 x i2]* %vmStubsPH1Z2_r_V, i64 0, i64 %tmp_7
+
+ST_4: vmStubsPH1Z2_pt_V_addr [1/1] 0.00ns
+:5  %vmStubsPH1Z2_pt_V_addr = getelementptr [40 x i3]* %vmStubsPH1Z2_pt_V, i64 0, i64 %tmp_7
+
+ST_4: vmStubsPH1Z2_index_V_addr [1/1] 0.00ns
+:6  %vmStubsPH1Z2_index_V_addr = getelementptr [40 x i6]* %vmStubsPH1Z2_index_V, i64 0, i64 %tmp_7
+
+ST_4: vmStubsPH1Z2_real_addr [1/1] 0.00ns
+:7  %vmStubsPH1Z2_real_addr = getelementptr [40 x i1]* %vmStubsPH1Z2_real, i64 0, i64 %tmp_7
+
+ST_4: stg_253 [1/1] 2.39ns
+:8  store i4 %p_Result_s, i4* %vmStubsPH1Z2_z_V_addr, align 1
+
+ST_4: stg_254 [1/1] 2.39ns
+:9  store i3 %p_Result_1, i3* %vmStubsPH1Z2_phi_V_addr, align 1
+
+ST_4: stg_255 [1/1] 2.39ns
+:10  store i2 %p_Result_2, i2* %vmStubsPH1Z2_r_V_addr, align 1
+
+ST_4: stg_256 [1/1] 2.39ns
+:11  store i3 %redPt_V, i3* %vmStubsPH1Z2_pt_V_addr, align 1
+
+ST_4: stg_257 [1/1] 2.39ns
+:12  store i6 %op2_V_read_assign, i6* %vmStubsPH1Z2_index_V_addr, align 1
+
+ST_4: stg_258 [1/1] 2.39ns
+:13  store i1 true, i1* %vmStubsPH1Z2_real_addr, align 1
+
+ST_4: nPH1Z2_V [1/1] 1.27ns
+:14  %nPH1Z2_V = add i6 %nPH1Z2_V_1_load, 1
+
+ST_4: stg_260 [1/1] 0.89ns
+:15  store i6 %nPH1Z2_V, i6* %nPH1Z2_V_1
+
+ST_4: empty_16 [1/1] 0.00ns
+._crit_edge:0  %empty_16 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str, i32 %tmp_3)
+
+ST_4: stg_262 [1/1] 0.00ns
+._crit_edge:1  br label %1
+
+
+ <State 5>: 0.00ns
+ST_5: stg_263 [1/1] 0.00ns
+.loopexit:0  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.16ns, clock uncertainty: 0.52ns.
+
+ No timing violations. 
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

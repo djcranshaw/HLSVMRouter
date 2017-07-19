@@ -23,7 +23,11 @@ void VMRouter(HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS],
               HLSReducedStubLayer vmStubsPH2Z2[MAX_nSTUBS],
               HLSReducedStubLayer vmStubsPH3Z2[MAX_nSTUBS],
               HLSReducedStubLayer vmStubsPH4Z2[MAX_nSTUBS],
-              int nStubs)
+              int nStubs,
+	      ReducedIndex *nPH1Z1, ReducedIndex *nPH2Z1,
+              ReducedIndex *nPH3Z1, ReducedIndex *nPH4Z1,
+              ReducedIndex *nPH1Z2, ReducedIndex *nPH2Z2,
+              ReducedIndex *nPH3Z2, ReducedIndex *nPH4Z2)
 {
   // Declare variables
   FullZ_Layer_PS curZ;
@@ -41,21 +45,12 @@ void VMRouter(HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS],
   ap_uint<2> routePhi;
   ap_uint<1> routeZ;
 
-  ReducedIndex nPH1Z1, nPH2Z1, nPH3Z1, nPH4Z1, nPH1Z2, nPH2Z2, nPH3Z2, nPH4Z2;
-  nPH1Z1 = 0;
-  nPH2Z1 = 0;
-  nPH3Z1 = 0;
-  nPH4Z1 = 0;
-  nPH1Z2 = 0;
-  nPH2Z2 = 0;
-  nPH3Z2 = 0;
-  nPH4Z2 = 0;
-
   index = 0;
   for (int i=0; i<MAX_nSTUBS; i++)
   {
-  //#pragma HLS PIPELINE II=1
+  #pragma HLS PIPELINE II=1
   //#pragma HLS UNROLL
+  //#pragma HLS UNROLL factor=3
     if (i < nStubs)
     {
       // Extract stub parameters
@@ -85,27 +80,26 @@ void VMRouter(HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS],
       routeZ.set_bit(0,curZ.get_bit(9));
 
       // Route stubs
-      // (I tried nested switch blocks, couldn't get it to work for some reason)
       switch (routeZ)
       {
         case 0:
           switch (routePhi)
           {
             case 0:
-              vmStubsPH1Z1[nPH1Z1].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH1Z1++;
+              vmStubsPH1Z1[nPH1Z1->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH1Z1 = *nPH1Z1 +1;
               break;
             case 1:
-              vmStubsPH2Z1[nPH2Z1].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH2Z1++;
+              vmStubsPH2Z1[nPH2Z1->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH2Z1 = *nPH2Z1 + 1;
               break;
             case 2:
-              vmStubsPH3Z1[nPH3Z1].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH3Z1++;
+              vmStubsPH3Z1[nPH3Z1->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH3Z1 = *nPH3Z1 + 1;
               break;
             case 3:
-              vmStubsPH4Z1[nPH4Z1].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH4Z1++;
+              vmStubsPH4Z1[nPH4Z1->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH4Z1 = *nPH4Z1 + 1;
               break;
           }
           break;
@@ -113,83 +107,28 @@ void VMRouter(HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS],
           switch (routePhi)
           {
             case 0:
-              vmStubsPH1Z2[nPH1Z2].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH1Z2++;
+              vmStubsPH1Z2[nPH1Z2->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH1Z2 = *nPH1Z2 + 1;
               break;
             case 1:
-              vmStubsPH2Z2[nPH2Z2].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH2Z2++;
+              vmStubsPH2Z2[nPH2Z2->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH2Z2 = *nPH2Z2 + 1;
               break;
             case 2:
-              vmStubsPH3Z2[nPH3Z2].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH3Z2++;
+              vmStubsPH3Z2[nPH3Z2->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH3Z2 = *nPH3Z2 + 1;
               break;
             case 3:
-              vmStubsPH4Z2[nPH4Z2].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH4Z2++;
+              vmStubsPH4Z2[nPH4Z2->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH4Z2 = *nPH4Z2 + 1;
               break;
           }
           break;
       }
-
-
-
-      /*
-
-
-
-
-      if (routeZ == 0)
-      {
-        if (routePhi == 0)
-        {
-          vmStubsPH1Z1[nPH1Z1].AddStub(redZ, redPhi, redR, redPt, index);
-          nPH1Z1++;
-        } else if (routePhi == 1)
-        {
-          vmStubsPH2Z1[nPH2Z1].AddStub(redZ, redPhi, redR, redPt, index);
-          nPH2Z1++;
-        } else if (routePhi == 2)
-        {
-          vmStubsPH3Z1[nPH3Z1].AddStub(redZ, redPhi, redR, redPt, index);
-          nPH3Z1++;
-        } else if (routePhi == 3)
-        {
-          vmStubsPH4Z1[nPH4Z1].AddStub(redZ, redPhi, redR, redPt, index);
-          nPH4Z1++;
-        } else
-        {
-          printf("FirstBlock index = %d\n",index.to_int());
-        }
-      } else if (routeZ == 0)
-      {
-        if (routePhi == 0)
-        {
-          vmStubsPH1Z1[nPH1Z1].AddStub(redZ, redPhi, redR, redPt, index);
-          nPH1Z1++;
-        } else if (routePhi == 1)
-        {
-          vmStubsPH2Z1[nPH2Z1].AddStub(redZ, redPhi, redR, redPt, index);
-          nPH2Z1++;
-        } else if (routePhi == 2)
-        {
-          vmStubsPH3Z1[nPH3Z1].AddStub(redZ, redPhi, redR, redPt, index);
-          nPH3Z1++;
-        } else if (routePhi == 3)
-        {
-          vmStubsPH4Z1[nPH4Z1].AddStub(redZ, redPhi, redR, redPt, index);
-          nPH4Z1++;
-        } else
-        {
-          printf("SecondBlock index = %d\n",index.to_int());
-        }
-      } else
-      {
-        printf("TotalBlock; index = %d || routeZ = %d\n",index.to_int(),routeZ.to_int());
-
-      }
-      */
       index ++;
+    } else
+    {
+      break;
     }
   }
 }
