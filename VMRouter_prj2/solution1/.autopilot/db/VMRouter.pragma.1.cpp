@@ -38997,7 +38997,8 @@ struct ap_ufixed: ap_fixed_base<_AP_W, _AP_I, false, _AP_Q, _AP_O, _AP_N> {
 
 
 // Define max number of stubs an individual module can take
-const int MAX_nSTUBS = 40;
+const int MAX_nSTUBS = 50;
+const int MAX_nEVENTS = 100;
 
 // Define bit widths for full stub parameters (for both PS & 2S)
 typedef ap_uint<12> FullZ_Layer_PS;
@@ -39025,7 +39026,6 @@ public:
     phi = 0;
     r = 0;
     pt = 0;
-    real = 0;
   }
   void AddStub(FullZ_Layer_PS newZ, FullPhi_Layer_PS newPhi, FullR_Layer_PS newR, FullPt_Layer_PS newPt)
   {
@@ -39033,7 +39033,6 @@ public:
     phi = newPhi;
     r = newR;
     pt = newPt;
-    real = 1;
   }
   FullZ_Layer_PS GetZ()
   {
@@ -39050,10 +39049,6 @@ public:
   FullPt_Layer_PS GetPt()
   {
     return pt;
-  }
-  bool GetReal()
-  {
-    return real;
   }
   void SetZ(FullZ_Layer_PS newZ)
   {
@@ -39076,7 +39071,6 @@ private:
   FullPhi_Layer_PS phi;
   FullR_Layer_PS r;
   FullPt_Layer_PS pt;
-  bool real;
 };
 #8 "VMRouter.cpp" 2
 
@@ -39101,7 +39095,6 @@ public:
     r = 0;
     pt = 0;
     index = 0;
-    real = 0;
   }
   void AddStub(ReducedZ_Layer newZ, ReducedPhi_Layer newPhi, ReducedR_Layer newR, ReducedPt_Layer newPt, ReducedIndex newIndex)
   {
@@ -39110,7 +39103,6 @@ public:
     r = newR;
     pt = newPt;
     index = newIndex;
-    real = 1;
   }
   ReducedZ_Layer GetZ()
   {
@@ -39131,10 +39123,6 @@ public:
   ReducedIndex GetIndex()
   {
     return index;
-  }
-  bool GetReal()
-  {
-    return real;
   }
   void SetZ(ReducedZ_Layer newZ)
   {
@@ -39162,7 +39150,6 @@ private:
   ReducedR_Layer r;
   ReducedPt_Layer pt;
   ReducedIndex index;
-  bool real;
 };
 #6 "./VMRouter.hh" 2
 #1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 1 3
@@ -42484,9 +42471,13 @@ void VMRouter(HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS],
               HLSReducedStubLayer vmStubsPH4Z1[MAX_nSTUBS],
               HLSReducedStubLayer vmStubsPH1Z2[MAX_nSTUBS],
               HLSReducedStubLayer vmStubsPH2Z2[MAX_nSTUBS],
-       HLSReducedStubLayer vmStubsPH3Z2[MAX_nSTUBS],
+              HLSReducedStubLayer vmStubsPH3Z2[MAX_nSTUBS],
               HLSReducedStubLayer vmStubsPH4Z2[MAX_nSTUBS],
-              int nStubs);
+              int nStubs,
+              ReducedIndex *nPH1Z1, ReducedIndex *nPH2Z1,
+              ReducedIndex *nPH3Z1, ReducedIndex *nPH4Z1,
+              ReducedIndex *nPH1Z2, ReducedIndex *nPH2Z2,
+              ReducedIndex *nPH3Z2, ReducedIndex *nPH4Z2);
 #10 "VMRouter.cpp" 2
 
 
@@ -43644,7 +43635,11 @@ void VMRouter(HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS],
               HLSReducedStubLayer vmStubsPH2Z2[MAX_nSTUBS],
               HLSReducedStubLayer vmStubsPH3Z2[MAX_nSTUBS],
               HLSReducedStubLayer vmStubsPH4Z2[MAX_nSTUBS],
-              int nStubs)
+              int nStubs,
+       ReducedIndex *nPH1Z1, ReducedIndex *nPH2Z1,
+              ReducedIndex *nPH3Z1, ReducedIndex *nPH4Z1,
+              ReducedIndex *nPH1Z2, ReducedIndex *nPH2Z2,
+              ReducedIndex *nPH3Z2, ReducedIndex *nPH4Z2)
 {_ssdm_SpecArrayDimSize(vmStubsPH4Z2,MAX_nSTUBS);_ssdm_SpecArrayDimSize(allStubs,MAX_nSTUBS);_ssdm_SpecArrayDimSize(vmStubsPH3Z1,MAX_nSTUBS);_ssdm_SpecArrayDimSize(vmStubsPH2Z2,MAX_nSTUBS);_ssdm_SpecArrayDimSize(vmStubsPH4Z1,MAX_nSTUBS);_ssdm_SpecArrayDimSize(vmStubsPH3Z2,MAX_nSTUBS);_ssdm_SpecArrayDimSize(vmStubsPH1Z1,MAX_nSTUBS);_ssdm_SpecArrayDimSize(vmStubsPH2Z1,MAX_nSTUBS);_ssdm_SpecArrayDimSize(vmStubsPH1Z2,MAX_nSTUBS);_ssdm_SpecArrayDimSize(stubsInLayer,MAX_nSTUBS);
   // Declare variables
   FullZ_Layer_PS curZ;
@@ -43661,16 +43656,6 @@ void VMRouter(HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS],
 
   ap_uint<2> routePhi;
   ap_uint<1> routeZ;
-
-  ReducedIndex nPH1Z1, nPH2Z1, nPH3Z1, nPH4Z1, nPH1Z2, nPH2Z2, nPH3Z2, nPH4Z2;
-  nPH1Z1 = 0;
-  nPH2Z1 = 0;
-  nPH3Z1 = 0;
-  nPH4Z1 = 0;
-  nPH1Z2 = 0;
-  nPH2Z2 = 0;
-  nPH3Z2 = 0;
-  nPH4Z2 = 0;
 
   index = 0;
   for (int i=0; i<MAX_nSTUBS; i++)
@@ -43713,20 +43698,20 @@ _ssdm_op_SpecPipeline(1, 1, 1, 0, "");
           switch (routePhi)
           {
             case 0:
-              vmStubsPH1Z1[nPH1Z1].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH1Z1++;
+              vmStubsPH1Z1[nPH1Z1->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH1Z1 = *nPH1Z1 +1;
               break;
             case 1:
-              vmStubsPH2Z1[nPH2Z1].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH2Z1++;
+              vmStubsPH2Z1[nPH2Z1->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH2Z1 = *nPH2Z1 + 1;
               break;
             case 2:
-              vmStubsPH3Z1[nPH3Z1].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH3Z1++;
+              vmStubsPH3Z1[nPH3Z1->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH3Z1 = *nPH3Z1 + 1;
               break;
             case 3:
-              vmStubsPH4Z1[nPH4Z1].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH4Z1++;
+              vmStubsPH4Z1[nPH4Z1->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH4Z1 = *nPH4Z1 + 1;
               break;
           }
           break;
@@ -43734,20 +43719,20 @@ _ssdm_op_SpecPipeline(1, 1, 1, 0, "");
           switch (routePhi)
           {
             case 0:
-              vmStubsPH1Z2[nPH1Z2].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH1Z2++;
+              vmStubsPH1Z2[nPH1Z2->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH1Z2 = *nPH1Z2 + 1;
               break;
             case 1:
-              vmStubsPH2Z2[nPH2Z2].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH2Z2++;
+              vmStubsPH2Z2[nPH2Z2->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH2Z2 = *nPH2Z2 + 1;
               break;
             case 2:
-              vmStubsPH3Z2[nPH3Z2].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH3Z2++;
+              vmStubsPH3Z2[nPH3Z2->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH3Z2 = *nPH3Z2 + 1;
               break;
             case 3:
-              vmStubsPH4Z2[nPH4Z2].AddStub(redZ, redPhi, redR, redPt, index);
-              nPH4Z2++;
+              vmStubsPH4Z2[nPH4Z2->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
+              *nPH4Z2 = *nPH4Z2 + 1;
               break;
           }
           break;
@@ -43764,6 +43749,7 @@ class ssdm_global_array_VMRouterpp0cppaplinecpp {
 	public:
 		 inline __attribute__((always_inline)) ssdm_global_array_VMRouterpp0cppaplinecpp() {
 			_ssdm_SpecConstant(&MAX_nSTUBS);
+			_ssdm_SpecConstant(&MAX_nEVENTS);
 		}
 };
 static ssdm_global_array_VMRouterpp0cppaplinecpp ssdm_global_array_ins;

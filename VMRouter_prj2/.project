@@ -67,6 +67,16 @@
 			<location>/mnt/scratch/djc448/HLSAlgorithm/VMRouter.hh</location>
 		</link>
 		<link>
+			<name>source/VMRouterDispatcher.cpp</name>
+			<type>1</type>
+			<location>/mnt/scratch/djc448/HLSAlgorithm/VMRouterDispatcher.cpp</location>
+		</link>
+		<link>
+			<name>source/VMRouterDispatcher.hh</name>
+			<type>1</type>
+			<location>/mnt/scratch/djc448/HLSAlgorithm/VMRouterDispatcher.hh</location>
+		</link>
+		<link>
 			<name>testbench/VMRouter_test.cpp</name>
 			<type>1</type>
 			<location>/mnt/scratch/djc448/HLSAlgorithm/VMRouter_test.cpp</location>

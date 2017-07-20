@@ -4,12 +4,14 @@
 ## Copyright (C) 1986-2016 Xilinx, Inc. All Rights Reserved.
 ############################################################
 open_project VMRouter_prj2
-set_top VMRouter
+set_top VMRouterDispatcher
 add_files HLSConstants.hh
 add_files HLSFullStubLayerPS.hh
 add_files HLSReducedStubLayer.hh
 add_files VMRouter.cpp
 add_files VMRouter.hh
+add_files VMRouterDispatcher.cpp
+add_files VMRouterDispatcher.hh
 add_files -tb VMRouter_test.cpp
 add_files -tb emData
 open_solution "solution1"

@@ -1,11 +1,146 @@
 INFO: [HLS 200-10] Running '/nfs/opt/Xilinx/Vivado_HLS/2016.1/bin/unwrapped/lnx64.o/vivado_hls'
-INFO: [HLS 200-10] For user 'djc448' on host 'lnx231.classe.cornell.edu' (Linux_x86_64 version 3.10.0-514.6.1.el7.x86_64) on Wed Jul 19 15:54:54 EDT 2017
+INFO: [HLS 200-10] For user 'djc448' on host 'lnx231.classe.cornell.edu' (Linux_x86_64 version 3.10.0-514.6.1.el7.x86_64) on Thu Jul 20 08:07:12 EDT 2017
 INFO: [HLS 200-10] On os "Scientific Linux release 7.3 (Nitrogen)"
 INFO: [HLS 200-10] In directory '/mnt/scratch/djc448/HLSAlgorithm'
 INFO: [HLS 200-10] Opening project '/mnt/scratch/djc448/HLSAlgorithm/VMRouter_prj2'.
+INFO: [HLS 200-10] Adding design file 'HLSConstants.hh' to the project
+INFO: [HLS 200-10] Adding design file 'HLSFullStubLayerPS.hh' to the project
+INFO: [HLS 200-10] Adding design file 'HLSReducedStubLayer.hh' to the project
+INFO: [HLS 200-10] Adding design file 'VMRouter.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'VMRouter.hh' to the project
+INFO: [HLS 200-10] Adding design file 'VMRouterDispatcher.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'VMRouterDispatcher.hh' to the project
+INFO: [HLS 200-10] Adding test bench file 'VMRouter_test.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'emData' to the project
 INFO: [HLS 200-10] Opening solution '/mnt/scratch/djc448/HLSAlgorithm/VMRouter_prj2/solution1'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 4.16ns.
 INFO: [HLS 200-10] Setting target device to 'xc7vx690tffg1927-2'
-   Compiling ../../../../VMRouter_test.cpp in debug mode
-   Generating csim.exe
-INFO: [SIM 211-1] CSim done with 0 errors.
+WARNING: [HLS 200-40] Skipped source file 'VMRouterDispatcher.hh'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+INFO: [HLS 200-10] Analyzing design file 'VMRouterDispatcher.cpp' ... 
+WARNING: [HLS 200-40] Skipped source file 'VMRouter.hh'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+INFO: [HLS 200-10] Analyzing design file 'VMRouter.cpp' ... 
+WARNING: [HLS 200-40] Skipped source file 'HLSReducedStubLayer.hh'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+WARNING: [HLS 200-40] Skipped source file 'HLSFullStubLayerPS.hh'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+WARNING: [HLS 200-40] Skipped source file 'HLSConstants.hh'. Source files must have extensions .c, .C, .cc, .cpp, .c++, .cp, or .cxx.
+INFO: [HLS 200-10] Validating synthesis directives ...
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetZ' into 'VMRouter' (VMRouter.cpp:57) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetPhi' into 'VMRouter' (VMRouter.cpp:58) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetR' into 'VMRouter' (VMRouter.cpp:59) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetPt' into 'VMRouter' (VMRouter.cpp:60) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::AddStub' into 'VMRouter' (VMRouter.cpp:63) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetZ' into 'VMRouter' (VMRouter.cpp:57) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetPhi' into 'VMRouter' (VMRouter.cpp:58) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetR' into 'VMRouter' (VMRouter.cpp:59) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::GetPt' into 'VMRouter' (VMRouter.cpp:60) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSFullStubLayerPS::AddStub' into 'VMRouter' (VMRouter.cpp:63) automatically.
+INFO: [XFORM 203-602] Inlining function 'HLSReducedStubLayer::AddStub' into 'VMRouter' (VMRouter.cpp:89) automatically.
+INFO: [HLS 200-111] Elapsed time: 5.48 seconds; current memory usage: 110 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'VMRouterDispatcher' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Scheduling module 'VMRouterDispatcher_VMRouter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Loop 1'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 1, Depth: 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Elapsed time: 0.4 seconds; current memory usage: 111 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Exploring micro-architecture for module 'VMRouterDispatcher_VMRouter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Elapsed time: 0.06 seconds; current memory usage: 112 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Scheduling module 'VMRouterDispatcher' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Elapsed time: 0.11 seconds; current memory usage: 112 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Exploring micro-architecture for module 'VMRouterDispatcher' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Elapsed time: 0.03 seconds; current memory usage: 112 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'VMRouterDispatcher_VMRouter' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'VMRouterDispatcher_VMRouter'.
+INFO: [HLS 200-111] Elapsed time: 0.28 seconds; current memory usage: 113 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'VMRouterDispatcher' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/stubsInLayer_z_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/stubsInLayer_phi_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/stubsInLayer_r_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/stubsInLayer_pt_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/allStubs_z_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/allStubs_phi_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/allStubs_r_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/allStubs_pt_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH1Z1_z_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH1Z1_phi_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH1Z1_r_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH1Z1_pt_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH1Z1_index_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH2Z1_z_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH2Z1_phi_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH2Z1_r_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH2Z1_pt_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH2Z1_index_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH3Z1_z_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH3Z1_phi_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH3Z1_r_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH3Z1_pt_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH3Z1_index_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH4Z1_z_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH4Z1_phi_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH4Z1_r_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH4Z1_pt_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH4Z1_index_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH1Z2_z_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH1Z2_phi_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH1Z2_r_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH1Z2_pt_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH1Z2_index_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH2Z2_z_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH2Z2_phi_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH2Z2_r_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH2Z2_pt_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH2Z2_index_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH3Z2_z_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH3Z2_phi_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH3Z2_r_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH3Z2_pt_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH3Z2_index_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH4Z2_z_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH4Z2_phi_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH4Z2_r_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH4Z2_pt_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/vmStubsPH4Z2_index_V' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/nStubs' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/nPH1Z1_V' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/nPH2Z1_V' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/nPH3Z1_V' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/nPH4Z1_V' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/nPH1Z2_V' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/nPH2Z2_V' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/nPH3Z2_V' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'VMRouterDispatcher/nPH4Z2_V' to 'ap_ovld'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'VMRouterDispatcher' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'VMRouterDispatcher'.
+INFO: [HLS 200-111] Elapsed time: 0.6 seconds; current memory usage: 117 MB.
+INFO: [HLS 200-10] Finished generating all RTL models.
+INFO: [SYSC 207-301] Generating SystemC RTL for VMRouterDispatcher.
+INFO: [VHDL 208-304] Generating VHDL RTL for VMRouterDispatcher.
+INFO: [VLOG 209-307] Generating Verilog RTL for VMRouterDispatcher.
+INFO: [HLS 200-112] Total elapsed time: 26.140 seconds; peak memory usage: 117 MB.

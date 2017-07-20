@@ -1,5 +1,5 @@
 
-set TopModule "VMRouter"
+set TopModule "VMRouterDispatcher"
 set ClockPeriod "4.160000"
 set ClockList {ap_clk}
 set multiClockList {}
@@ -41,15 +41,15 @@ set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
 set TargetInfo "xc7vx690t:ffg1927:-2"
-set SourceFiles {sc {} c ../../VMRouter.cpp}
-set SourceFlags {sc {} c {{}}}
+set SourceFiles {sc {} c {../../VMRouterDispatcher.cpp ../../VMRouter.cpp}}
+set SourceFlags {sc {} c {{} {}}}
 set DirectiveFile {/mnt/scratch/djc448/HLSAlgorithm/VMRouter_prj2/solution1/solution1.directive}
-set TBFiles {verilog {../../VMRouter_in.dat ../../VMRouter_outgold.dat ../../VMRouter_test.cpp} bc {../../VMRouter_in.dat ../../VMRouter_outgold.dat ../../VMRouter_test.cpp} vhdl {../../VMRouter_in.dat ../../VMRouter_outgold.dat ../../VMRouter_test.cpp} sc {../../VMRouter_in.dat ../../VMRouter_outgold.dat ../../VMRouter_test.cpp} cas {../../VMRouter_in.dat ../../VMRouter_outgold.dat ../../VMRouter_test.cpp} c {}}
+set TBFiles {verilog {../../emData ../../VMRouter_test.cpp} bc {../../emData ../../VMRouter_test.cpp} sc {../../emData ../../VMRouter_test.cpp} vhdl {../../emData ../../VMRouter_test.cpp} c {} cas {../../emData ../../VMRouter_test.cpp}}
 set SpecLanguage "C"
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
-set TBTops {verilog {} bc {} vhdl {} sc {} cas {} c {}}
-set TBInstNames {verilog {} bc {} vhdl {} sc {} cas {} c {}}
+set TBTops {verilog {} bc {} sc {} vhdl {} c {} cas {}}
+set TBInstNames {verilog {} bc {} sc {} vhdl {} c {} cas {}}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
 set PlatformFiles {{DefaultPlatform {xilinx/virtex7/virtex7 xilinx/virtex7/virtex7_fpv6}}}
 set DefaultPlatform "DefaultPlatform"

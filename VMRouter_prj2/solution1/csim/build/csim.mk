@@ -19,7 +19,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../VMRouter_test.cpp ../../../../VMRouter.cpp
+HLS_SOURCES = ../../../../VMRouter_test.cpp ../../../../VMRouter.cpp ../../../../VMRouterDispatcher.cpp
 
 TARGET := csim.exe
 
@@ -80,3 +80,9 @@ $(ObjDir)/VMRouter.o: ../../../../VMRouter.cpp $(ObjDir)/.dir
 	$(Verb)  $(CC) -c -MMD  $(IFLAG) $(DFLAG)  $< -o $@ ; \
 
 -include $(ObjDir)/VMRouter.d
+
+$(ObjDir)/VMRouterDispatcher.o: ../../../../VMRouterDispatcher.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../../VMRouterDispatcher.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+	$(Verb)  $(CC) -c -MMD  $(IFLAG) $(DFLAG)  $< -o $@ ; \
+
+-include $(ObjDir)/VMRouterDispatcher.d

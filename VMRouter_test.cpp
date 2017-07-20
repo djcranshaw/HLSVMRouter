@@ -3,6 +3,7 @@
 #include "HLSFullStubLayerPS.hh"
 #include "HLSReducedStubLayer.hh"
 #include "VMRouter.hh"
+#include "VMRouterDispatcher.hh"
 #include "ap_int.h"
 #include <vector>
 #include <stdio.h>
@@ -165,7 +166,7 @@ int main()
   for (int i=0; i<MAX_nEVENTS; i++)
   {
     copy(stubsInLayer + i*MAX_nSTUBS, stubsInLayer + (i+1)*MAX_nSTUBS,curStubsInLayer);
-    VMRouter(curStubsInLayer, curAllStubs,
+    VMRouterDispatcher(curStubsInLayer, curAllStubs,
            curvmStubsPH1Z1, curvmStubsPH2Z1,
            curvmStubsPH3Z1, curvmStubsPH4Z1,
            curvmStubsPH1Z2, curvmStubsPH2Z2,

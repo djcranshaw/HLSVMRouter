@@ -1,0 +1,5 @@
+   Compiling ../../../../VMRouter_test.cpp in debug mode
+   Compiling ../../../../VMRouter.cpp in debug mode
+   Compiling ../../../../VMRouterDispatcher.cpp in debug mode
+   Generating csim.exe
+INFO: [SIM 1] CSim done with 0 errors.
