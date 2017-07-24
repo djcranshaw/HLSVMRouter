@@ -2,7 +2,7 @@
 target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@llvm_global_ctors_1 = appending global [2 x void ()*] [void ()* @_GLOBAL__I_a, void ()* @_GLOBAL__I_a10] ; [#uses=0 type=[2 x void ()*]*]
+@llvm_global_ctors_1 = appending global [2 x void ()*] [void ()* @_GLOBAL__I_a, void ()* @_GLOBAL__I_a11] ; [#uses=0 type=[2 x void ()*]*]
 @llvm_global_ctors_0 = appending global [2 x i32] [i32 65535, i32 65535] ; [#uses=0 type=[2 x i32]*]
 @VMRouterDispatcher_str = internal unnamed_addr constant [19 x i8] c"VMRouterDispatcher\00" ; [#uses=1 type=[19 x i8]*]
 @p_str1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1 ; [#uses=1 type=[1 x i8]*]
@@ -128,7 +128,7 @@ entry:
 }
 
 ; [#uses=1]
-declare void @_GLOBAL__I_a10() nounwind section ".text.startup"
+declare void @_GLOBAL__I_a11() nounwind section ".text.startup"
 
 ; [#uses=1]
 declare void @_GLOBAL__I_a() nounwind section ".text.startup"
@@ -1055,7 +1055,7 @@ define internal fastcc { i6, i6, i6, i6, i6, i6, i6, i6 } @VMRouterDispatcher_VM
 !320 = metadata !{i32 786473, metadata !"./HLSFullStubLayerPS.hh", metadata !"/mnt/scratch/djc448/HLSAlgorithm", null} ; [ DW_TAG_file_type ]
 !321 = metadata !{metadata !322, metadata !699, metadata !1038, metadata !1898, metadata !2237, metadata !2241, metadata !2244, metadata !2247, metadata !2250, metadata !2253, metadata !2256, metadata !2259, metadata !2262, metadata !2265}
 !322 = metadata !{i32 786445, metadata !319, metadata !"z", metadata !320, i32 56, i64 16, i64 16, i64 0, i32 1, metadata !323} ; [ DW_TAG_member ]
-!323 = metadata !{i32 786454, null, metadata !"FullZ_Layer_PS", metadata !320, i32 10, i64 0, i64 0, i64 0, i32 0, metadata !324} ; [ DW_TAG_typedef ]
+!323 = metadata !{i32 786454, null, metadata !"FullZ_Layer_PS", metadata !320, i32 11, i64 0, i64 0, i64 0, i32 0, metadata !324} ; [ DW_TAG_typedef ]
 !324 = metadata !{i32 786434, null, metadata !"ap_uint<12>", metadata !325, i32 180, i64 16, i64 16, i32 0, i32 0, null, metadata !326, i32 0, null, metadata !698} ; [ DW_TAG_class_type ]
 !325 = metadata !{i32 786473, metadata !"/nfs/opt/Xilinx/Vivado_HLS/2016.1/common/technology/autopilot/ap_int.h", metadata !"/mnt/scratch/djc448/HLSAlgorithm", null} ; [ DW_TAG_file_type ]
 !326 = metadata !{metadata !327, metadata !618, metadata !622, metadata !628, metadata !634, metadata !637, metadata !640, metadata !643, metadata !646, metadata !649, metadata !652, metadata !655, metadata !658, metadata !661, metadata !664, metadata !667, metadata !670, metadata !673, metadata !676, metadata !679, metadata !682, metadata !686, metadata !689, metadata !693, metadata !696, metadata !697}
@@ -1432,7 +1432,7 @@ define internal fastcc { i6, i6, i6, i6, i6, i6, i6, i6 } @VMRouterDispatcher_VM
 !697 = metadata !{i32 786478, i32 0, metadata !324, metadata !"~ap_uint", metadata !"~ap_uint", metadata !"", metadata !325, i32 180, metadata !619, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !698 = metadata !{metadata !616}
 !699 = metadata !{i32 786445, metadata !319, metadata !"phi", metadata !320, i32 57, i64 16, i64 16, i64 16, i32 1, metadata !700} ; [ DW_TAG_member ]
-!700 = metadata !{i32 786454, null, metadata !"FullPhi_Layer_PS", metadata !320, i32 11, i64 0, i64 0, i64 0, i32 0, metadata !701} ; [ DW_TAG_typedef ]
+!700 = metadata !{i32 786454, null, metadata !"FullPhi_Layer_PS", metadata !320, i32 12, i64 0, i64 0, i64 0, i32 0, metadata !701} ; [ DW_TAG_typedef ]
 !701 = metadata !{i32 786434, null, metadata !"ap_uint<14>", metadata !325, i32 180, i64 16, i64 16, i32 0, i32 0, null, metadata !702, i32 0, null, metadata !1037} ; [ DW_TAG_class_type ]
 !702 = metadata !{metadata !703, metadata !957, metadata !961, metadata !967, metadata !973, metadata !976, metadata !979, metadata !982, metadata !985, metadata !988, metadata !991, metadata !994, metadata !997, metadata !1000, metadata !1003, metadata !1006, metadata !1009, metadata !1012, metadata !1015, metadata !1018, metadata !1021, metadata !1025, metadata !1028, metadata !1032, metadata !1035, metadata !1036}
 !703 = metadata !{i32 786460, metadata !701, null, metadata !325, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !704} ; [ DW_TAG_inheritance ]
@@ -1771,7 +1771,7 @@ define internal fastcc { i6, i6, i6, i6, i6, i6, i6, i6 } @VMRouterDispatcher_VM
 !1036 = metadata !{i32 786478, i32 0, metadata !701, metadata !"~ap_uint", metadata !"~ap_uint", metadata !"", metadata !325, i32 180, metadata !958, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !1037 = metadata !{metadata !956}
 !1038 = metadata !{i32 786445, metadata !319, metadata !"r", metadata !320, i32 58, i64 8, i64 8, i64 32, i32 1, metadata !1039} ; [ DW_TAG_member ]
-!1039 = metadata !{i32 786454, null, metadata !"FullR_Layer_PS", metadata !320, i32 12, i64 0, i64 0, i64 0, i32 0, metadata !1040} ; [ DW_TAG_typedef ]
+!1039 = metadata !{i32 786454, null, metadata !"FullR_Layer_PS", metadata !320, i32 13, i64 0, i64 0, i64 0, i32 0, metadata !1040} ; [ DW_TAG_typedef ]
 !1040 = metadata !{i32 786434, null, metadata !"ap_uint<7>", metadata !325, i32 180, i64 8, i64 8, i32 0, i32 0, null, metadata !1041, i32 0, null, metadata !1897} ; [ DW_TAG_class_type ]
 !1041 = metadata !{metadata !1042, metadata !1817, metadata !1821, metadata !1827, metadata !1833, metadata !1836, metadata !1839, metadata !1842, metadata !1845, metadata !1848, metadata !1851, metadata !1854, metadata !1857, metadata !1860, metadata !1863, metadata !1866, metadata !1869, metadata !1872, metadata !1875, metadata !1878, metadata !1881, metadata !1885, metadata !1888, metadata !1892, metadata !1895, metadata !1896}
 !1042 = metadata !{i32 786460, metadata !1040, null, metadata !325, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !1043} ; [ DW_TAG_inheritance ]
@@ -2631,7 +2631,7 @@ define internal fastcc { i6, i6, i6, i6, i6, i6, i6, i6 } @VMRouterDispatcher_VM
 !1896 = metadata !{i32 786478, i32 0, metadata !1040, metadata !"~ap_uint", metadata !"~ap_uint", metadata !"", metadata !325, i32 180, metadata !1818, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !1897 = metadata !{metadata !1816}
 !1898 = metadata !{i32 786445, metadata !319, metadata !"pt", metadata !320, i32 59, i64 8, i64 8, i64 40, i32 1, metadata !1899} ; [ DW_TAG_member ]
-!1899 = metadata !{i32 786454, null, metadata !"FullPt_Layer_PS", metadata !320, i32 13, i64 0, i64 0, i64 0, i32 0, metadata !1900} ; [ DW_TAG_typedef ]
+!1899 = metadata !{i32 786454, null, metadata !"FullPt_Layer_PS", metadata !320, i32 14, i64 0, i64 0, i64 0, i32 0, metadata !1900} ; [ DW_TAG_typedef ]
 !1900 = metadata !{i32 786434, null, metadata !"ap_uint<3>", metadata !325, i32 180, i64 8, i64 8, i32 0, i32 0, null, metadata !1901, i32 0, null, metadata !2236} ; [ DW_TAG_class_type ]
 !1901 = metadata !{metadata !1902, metadata !2156, metadata !2160, metadata !2166, metadata !2172, metadata !2175, metadata !2178, metadata !2181, metadata !2184, metadata !2187, metadata !2190, metadata !2193, metadata !2196, metadata !2199, metadata !2202, metadata !2205, metadata !2208, metadata !2211, metadata !2214, metadata !2217, metadata !2220, metadata !2224, metadata !2227, metadata !2231, metadata !2234, metadata !2235}
 !1902 = metadata !{i32 786460, metadata !1900, null, metadata !325, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !1903} ; [ DW_TAG_inheritance ]
@@ -3005,7 +3005,7 @@ define internal fastcc { i6, i6, i6, i6, i6, i6, i6, i6 } @VMRouterDispatcher_VM
 !2270 = metadata !{i32 786473, metadata !"./HLSReducedStubLayer.hh", metadata !"/mnt/scratch/djc448/HLSAlgorithm", null} ; [ DW_TAG_file_type ]
 !2271 = metadata !{metadata !2272, metadata !2611, metadata !2613, metadata !2984, metadata !2986, metadata !3325, metadata !3329, metadata !3332, metadata !3335, metadata !3338, metadata !3341, metadata !3344, metadata !3347, metadata !3350, metadata !3353, metadata !3356, metadata !3359}
 !2272 = metadata !{i32 786445, metadata !2269, metadata !"z", metadata !2270, i32 65, i64 8, i64 8, i64 0, i32 1, metadata !2273} ; [ DW_TAG_member ]
-!2273 = metadata !{i32 786454, null, metadata !"ReducedZ_Layer", metadata !2270, i32 20, i64 0, i64 0, i64 0, i32 0, metadata !2274} ; [ DW_TAG_typedef ]
+!2273 = metadata !{i32 786454, null, metadata !"ReducedZ_Layer", metadata !2270, i32 21, i64 0, i64 0, i64 0, i32 0, metadata !2274} ; [ DW_TAG_typedef ]
 !2274 = metadata !{i32 786434, null, metadata !"ap_uint<4>", metadata !325, i32 180, i64 8, i64 8, i32 0, i32 0, null, metadata !2275, i32 0, null, metadata !2610} ; [ DW_TAG_class_type ]
 !2275 = metadata !{metadata !2276, metadata !2530, metadata !2534, metadata !2540, metadata !2546, metadata !2549, metadata !2552, metadata !2555, metadata !2558, metadata !2561, metadata !2564, metadata !2567, metadata !2570, metadata !2573, metadata !2576, metadata !2579, metadata !2582, metadata !2585, metadata !2588, metadata !2591, metadata !2594, metadata !2598, metadata !2601, metadata !2605, metadata !2608, metadata !2609}
 !2276 = metadata !{i32 786460, metadata !2274, null, metadata !325, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !2277} ; [ DW_TAG_inheritance ]
@@ -3344,9 +3344,9 @@ define internal fastcc { i6, i6, i6, i6, i6, i6, i6, i6 } @VMRouterDispatcher_VM
 !2609 = metadata !{i32 786478, i32 0, metadata !2274, metadata !"~ap_uint", metadata !"~ap_uint", metadata !"", metadata !325, i32 180, metadata !2531, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !2610 = metadata !{metadata !2529}
 !2611 = metadata !{i32 786445, metadata !2269, metadata !"phi", metadata !2270, i32 66, i64 8, i64 8, i64 8, i32 1, metadata !2612} ; [ DW_TAG_member ]
-!2612 = metadata !{i32 786454, null, metadata !"ReducedPhi_Layer", metadata !2270, i32 21, i64 0, i64 0, i64 0, i32 0, metadata !1900} ; [ DW_TAG_typedef ]
+!2612 = metadata !{i32 786454, null, metadata !"ReducedPhi_Layer", metadata !2270, i32 22, i64 0, i64 0, i64 0, i32 0, metadata !1900} ; [ DW_TAG_typedef ]
 !2613 = metadata !{i32 786445, metadata !2269, metadata !"r", metadata !2270, i32 67, i64 8, i64 8, i64 16, i32 1, metadata !2614} ; [ DW_TAG_member ]
-!2614 = metadata !{i32 786454, null, metadata !"ReducedR_Layer", metadata !2270, i32 22, i64 0, i64 0, i64 0, i32 0, metadata !2615} ; [ DW_TAG_typedef ]
+!2614 = metadata !{i32 786454, null, metadata !"ReducedR_Layer", metadata !2270, i32 23, i64 0, i64 0, i64 0, i32 0, metadata !2615} ; [ DW_TAG_typedef ]
 !2615 = metadata !{i32 786434, null, metadata !"ap_uint<2>", metadata !325, i32 180, i64 8, i64 8, i32 0, i32 0, null, metadata !2616, i32 0, null, metadata !2983} ; [ DW_TAG_class_type ]
 !2616 = metadata !{metadata !2617, metadata !2903, metadata !2907, metadata !2913, metadata !2919, metadata !2922, metadata !2925, metadata !2928, metadata !2931, metadata !2934, metadata !2937, metadata !2940, metadata !2943, metadata !2946, metadata !2949, metadata !2952, metadata !2955, metadata !2958, metadata !2961, metadata !2964, metadata !2967, metadata !2971, metadata !2974, metadata !2978, metadata !2981, metadata !2982}
 !2617 = metadata !{i32 786460, metadata !2615, null, metadata !325, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !2618} ; [ DW_TAG_inheritance ]
@@ -3717,9 +3717,9 @@ define internal fastcc { i6, i6, i6, i6, i6, i6, i6, i6 } @VMRouterDispatcher_VM
 !2982 = metadata !{i32 786478, i32 0, metadata !2615, metadata !"~ap_uint", metadata !"~ap_uint", metadata !"", metadata !325, i32 180, metadata !2904, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !2983 = metadata !{metadata !2874}
 !2984 = metadata !{i32 786445, metadata !2269, metadata !"pt", metadata !2270, i32 68, i64 8, i64 8, i64 24, i32 1, metadata !2985} ; [ DW_TAG_member ]
-!2985 = metadata !{i32 786454, null, metadata !"ReducedPt_Layer", metadata !2270, i32 23, i64 0, i64 0, i64 0, i32 0, metadata !1900} ; [ DW_TAG_typedef ]
+!2985 = metadata !{i32 786454, null, metadata !"ReducedPt_Layer", metadata !2270, i32 24, i64 0, i64 0, i64 0, i32 0, metadata !1900} ; [ DW_TAG_typedef ]
 !2986 = metadata !{i32 786445, metadata !2269, metadata !"index", metadata !2270, i32 69, i64 8, i64 8, i64 32, i32 1, metadata !2987} ; [ DW_TAG_member ]
-!2987 = metadata !{i32 786454, null, metadata !"ReducedIndex", metadata !2270, i32 24, i64 0, i64 0, i64 0, i32 0, metadata !2988} ; [ DW_TAG_typedef ]
+!2987 = metadata !{i32 786454, null, metadata !"ReducedIndex", metadata !2270, i32 25, i64 0, i64 0, i64 0, i32 0, metadata !2988} ; [ DW_TAG_typedef ]
 !2988 = metadata !{i32 786434, null, metadata !"ap_uint<6>", metadata !325, i32 180, i64 8, i64 8, i32 0, i32 0, null, metadata !2989, i32 0, null, metadata !3324} ; [ DW_TAG_class_type ]
 !2989 = metadata !{metadata !2990, metadata !3244, metadata !3248, metadata !3254, metadata !3260, metadata !3263, metadata !3266, metadata !3269, metadata !3272, metadata !3275, metadata !3278, metadata !3281, metadata !3284, metadata !3287, metadata !3290, metadata !3293, metadata !3296, metadata !3299, metadata !3302, metadata !3305, metadata !3308, metadata !3312, metadata !3315, metadata !3319, metadata !3322, metadata !3323}
 !2990 = metadata !{i32 786460, metadata !2988, null, metadata !325, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !2991} ; [ DW_TAG_inheritance ]
@@ -4269,7 +4269,7 @@ define internal fastcc { i6, i6, i6, i6, i6, i6, i6, i6 } @VMRouterDispatcher_VM
 !3534 = metadata !{i32 786434, null, metadata !"HLSFullStubLayerPS", metadata !320, i32 6, i64 48, i64 16, i32 0, i32 0, null, metadata !3535, i32 0, null, null} ; [ DW_TAG_class_type ]
 !3535 = metadata !{metadata !3536, metadata !3863, metadata !4190, metadata !5013, metadata !5340, metadata !5344, metadata !5347, metadata !5350, metadata !5353, metadata !5356, metadata !5359, metadata !5362, metadata !5365, metadata !5368}
 !3536 = metadata !{i32 786445, metadata !3534, metadata !"z", metadata !320, i32 56, i64 16, i64 16, i64 0, i32 1, metadata !3537} ; [ DW_TAG_member ]
-!3537 = metadata !{i32 786454, null, metadata !"FullZ_Layer_PS", metadata !320, i32 10, i64 0, i64 0, i64 0, i32 0, metadata !3538} ; [ DW_TAG_typedef ]
+!3537 = metadata !{i32 786454, null, metadata !"FullZ_Layer_PS", metadata !320, i32 11, i64 0, i64 0, i64 0, i32 0, metadata !3538} ; [ DW_TAG_typedef ]
 !3538 = metadata !{i32 786434, null, metadata !"ap_uint<12>", metadata !325, i32 180, i64 16, i64 16, i32 0, i32 0, null, metadata !3539, i32 0, null, metadata !698} ; [ DW_TAG_class_type ]
 !3539 = metadata !{metadata !3540, metadata !3784, metadata !3788, metadata !3793, metadata !3799, metadata !3802, metadata !3805, metadata !3808, metadata !3811, metadata !3814, metadata !3817, metadata !3820, metadata !3823, metadata !3826, metadata !3829, metadata !3832, metadata !3835, metadata !3838, metadata !3841, metadata !3844, metadata !3847, metadata !3851, metadata !3854, metadata !3858, metadata !3861, metadata !3862}
 !3540 = metadata !{i32 786460, metadata !3538, null, metadata !325, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !3541} ; [ DW_TAG_inheritance ]
@@ -4596,7 +4596,7 @@ define internal fastcc { i6, i6, i6, i6, i6, i6, i6, i6 } @VMRouterDispatcher_VM
 !3861 = metadata !{i32 786478, i32 0, metadata !3538, metadata !"ap_uint", metadata !"ap_uint", metadata !"", metadata !325, i32 180, metadata !3789, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !3862 = metadata !{i32 786478, i32 0, metadata !3538, metadata !"~ap_uint", metadata !"~ap_uint", metadata !"", metadata !325, i32 180, metadata !3785, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !3863 = metadata !{i32 786445, metadata !3534, metadata !"phi", metadata !320, i32 57, i64 16, i64 16, i64 16, i32 1, metadata !3864} ; [ DW_TAG_member ]
-!3864 = metadata !{i32 786454, null, metadata !"FullPhi_Layer_PS", metadata !320, i32 11, i64 0, i64 0, i64 0, i32 0, metadata !3865} ; [ DW_TAG_typedef ]
+!3864 = metadata !{i32 786454, null, metadata !"FullPhi_Layer_PS", metadata !320, i32 12, i64 0, i64 0, i64 0, i32 0, metadata !3865} ; [ DW_TAG_typedef ]
 !3865 = metadata !{i32 786434, null, metadata !"ap_uint<14>", metadata !325, i32 180, i64 16, i64 16, i32 0, i32 0, null, metadata !3866, i32 0, null, metadata !1037} ; [ DW_TAG_class_type ]
 !3866 = metadata !{metadata !3867, metadata !4111, metadata !4115, metadata !4120, metadata !4126, metadata !4129, metadata !4132, metadata !4135, metadata !4138, metadata !4141, metadata !4144, metadata !4147, metadata !4150, metadata !4153, metadata !4156, metadata !4159, metadata !4162, metadata !4165, metadata !4168, metadata !4171, metadata !4174, metadata !4178, metadata !4181, metadata !4185, metadata !4188, metadata !4189}
 !3867 = metadata !{i32 786460, metadata !3865, null, metadata !325, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !3868} ; [ DW_TAG_inheritance ]
@@ -4923,7 +4923,7 @@ define internal fastcc { i6, i6, i6, i6, i6, i6, i6, i6 } @VMRouterDispatcher_VM
 !4188 = metadata !{i32 786478, i32 0, metadata !3865, metadata !"ap_uint", metadata !"ap_uint", metadata !"", metadata !325, i32 180, metadata !4116, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !4189 = metadata !{i32 786478, i32 0, metadata !3865, metadata !"~ap_uint", metadata !"~ap_uint", metadata !"", metadata !325, i32 180, metadata !4112, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !4190 = metadata !{i32 786445, metadata !3534, metadata !"r", metadata !320, i32 58, i64 8, i64 8, i64 32, i32 1, metadata !4191} ; [ DW_TAG_member ]
-!4191 = metadata !{i32 786454, null, metadata !"FullR_Layer_PS", metadata !320, i32 12, i64 0, i64 0, i64 0, i32 0, metadata !4192} ; [ DW_TAG_typedef ]
+!4191 = metadata !{i32 786454, null, metadata !"FullR_Layer_PS", metadata !320, i32 13, i64 0, i64 0, i64 0, i32 0, metadata !4192} ; [ DW_TAG_typedef ]
 !4192 = metadata !{i32 786434, null, metadata !"ap_uint<7>", metadata !325, i32 180, i64 8, i64 8, i32 0, i32 0, null, metadata !4193, i32 0, null, metadata !1897} ; [ DW_TAG_class_type ]
 !4193 = metadata !{metadata !4194, metadata !4934, metadata !4938, metadata !4943, metadata !4949, metadata !4952, metadata !4955, metadata !4958, metadata !4961, metadata !4964, metadata !4967, metadata !4970, metadata !4973, metadata !4976, metadata !4979, metadata !4982, metadata !4985, metadata !4988, metadata !4991, metadata !4994, metadata !4997, metadata !5001, metadata !5004, metadata !5008, metadata !5011, metadata !5012}
 !4194 = metadata !{i32 786460, metadata !4192, null, metadata !325, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !4195} ; [ DW_TAG_inheritance ]
@@ -5746,7 +5746,7 @@ define internal fastcc { i6, i6, i6, i6, i6, i6, i6, i6 } @VMRouterDispatcher_VM
 !5011 = metadata !{i32 786478, i32 0, metadata !4192, metadata !"ap_uint", metadata !"ap_uint", metadata !"", metadata !325, i32 180, metadata !4939, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !5012 = metadata !{i32 786478, i32 0, metadata !4192, metadata !"~ap_uint", metadata !"~ap_uint", metadata !"", metadata !325, i32 180, metadata !4935, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !5013 = metadata !{i32 786445, metadata !3534, metadata !"pt", metadata !320, i32 59, i64 8, i64 8, i64 40, i32 1, metadata !5014} ; [ DW_TAG_member ]
-!5014 = metadata !{i32 786454, null, metadata !"FullPt_Layer_PS", metadata !320, i32 13, i64 0, i64 0, i64 0, i32 0, metadata !5015} ; [ DW_TAG_typedef ]
+!5014 = metadata !{i32 786454, null, metadata !"FullPt_Layer_PS", metadata !320, i32 14, i64 0, i64 0, i64 0, i32 0, metadata !5015} ; [ DW_TAG_typedef ]
 !5015 = metadata !{i32 786434, null, metadata !"ap_uint<3>", metadata !325, i32 180, i64 8, i64 8, i32 0, i32 0, null, metadata !5016, i32 0, null, metadata !2236} ; [ DW_TAG_class_type ]
 !5016 = metadata !{metadata !5017, metadata !5261, metadata !5265, metadata !5270, metadata !5276, metadata !5279, metadata !5282, metadata !5285, metadata !5288, metadata !5291, metadata !5294, metadata !5297, metadata !5300, metadata !5303, metadata !5306, metadata !5309, metadata !5312, metadata !5315, metadata !5318, metadata !5321, metadata !5324, metadata !5328, metadata !5331, metadata !5335, metadata !5338, metadata !5339}
 !5017 = metadata !{i32 786460, metadata !5015, null, metadata !325, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !5018} ; [ DW_TAG_inheritance ]
@@ -6107,7 +6107,7 @@ define internal fastcc { i6, i6, i6, i6, i6, i6, i6, i6 } @VMRouterDispatcher_VM
 !5372 = metadata !{i32 786434, null, metadata !"HLSReducedStubLayer", metadata !2270, i32 5, i64 40, i64 8, i32 0, i32 0, null, metadata !5373, i32 0, null, null} ; [ DW_TAG_class_type ]
 !5373 = metadata !{metadata !5374, metadata !5701, metadata !5703, metadata !6064, metadata !6066, metadata !6684, metadata !6688, metadata !6691, metadata !6694, metadata !6697, metadata !6700, metadata !6703, metadata !6706, metadata !6709, metadata !6712, metadata !6715, metadata !6718}
 !5374 = metadata !{i32 786445, metadata !5372, metadata !"z", metadata !2270, i32 65, i64 8, i64 8, i64 0, i32 1, metadata !5375} ; [ DW_TAG_member ]
-!5375 = metadata !{i32 786454, null, metadata !"ReducedZ_Layer", metadata !2270, i32 20, i64 0, i64 0, i64 0, i32 0, metadata !5376} ; [ DW_TAG_typedef ]
+!5375 = metadata !{i32 786454, null, metadata !"ReducedZ_Layer", metadata !2270, i32 21, i64 0, i64 0, i64 0, i32 0, metadata !5376} ; [ DW_TAG_typedef ]
 !5376 = metadata !{i32 786434, null, metadata !"ap_uint<4>", metadata !325, i32 180, i64 8, i64 8, i32 0, i32 0, null, metadata !5377, i32 0, null, metadata !2610} ; [ DW_TAG_class_type ]
 !5377 = metadata !{metadata !5378, metadata !5622, metadata !5626, metadata !5631, metadata !5637, metadata !5640, metadata !5643, metadata !5646, metadata !5649, metadata !5652, metadata !5655, metadata !5658, metadata !5661, metadata !5664, metadata !5667, metadata !5670, metadata !5673, metadata !5676, metadata !5679, metadata !5682, metadata !5685, metadata !5689, metadata !5692, metadata !5696, metadata !5699, metadata !5700}
 !5378 = metadata !{i32 786460, metadata !5376, null, metadata !325, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !5379} ; [ DW_TAG_inheritance ]
@@ -6434,9 +6434,9 @@ define internal fastcc { i6, i6, i6, i6, i6, i6, i6, i6 } @VMRouterDispatcher_VM
 !5699 = metadata !{i32 786478, i32 0, metadata !5376, metadata !"ap_uint", metadata !"ap_uint", metadata !"", metadata !325, i32 180, metadata !5627, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !5700 = metadata !{i32 786478, i32 0, metadata !5376, metadata !"~ap_uint", metadata !"~ap_uint", metadata !"", metadata !325, i32 180, metadata !5623, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !5701 = metadata !{i32 786445, metadata !5372, metadata !"phi", metadata !2270, i32 66, i64 8, i64 8, i64 8, i32 1, metadata !5702} ; [ DW_TAG_member ]
-!5702 = metadata !{i32 786454, null, metadata !"ReducedPhi_Layer", metadata !2270, i32 21, i64 0, i64 0, i64 0, i32 0, metadata !5015} ; [ DW_TAG_typedef ]
+!5702 = metadata !{i32 786454, null, metadata !"ReducedPhi_Layer", metadata !2270, i32 22, i64 0, i64 0, i64 0, i32 0, metadata !5015} ; [ DW_TAG_typedef ]
 !5703 = metadata !{i32 786445, metadata !5372, metadata !"r", metadata !2270, i32 67, i64 8, i64 8, i64 16, i32 1, metadata !5704} ; [ DW_TAG_member ]
-!5704 = metadata !{i32 786454, null, metadata !"ReducedR_Layer", metadata !2270, i32 22, i64 0, i64 0, i64 0, i32 0, metadata !5705} ; [ DW_TAG_typedef ]
+!5704 = metadata !{i32 786454, null, metadata !"ReducedR_Layer", metadata !2270, i32 23, i64 0, i64 0, i64 0, i32 0, metadata !5705} ; [ DW_TAG_typedef ]
 !5705 = metadata !{i32 786434, null, metadata !"ap_uint<2>", metadata !325, i32 180, i64 8, i64 8, i32 0, i32 0, null, metadata !5706, i32 0, null, metadata !2983} ; [ DW_TAG_class_type ]
 !5706 = metadata !{metadata !5707, metadata !5985, metadata !5989, metadata !5994, metadata !6000, metadata !6003, metadata !6006, metadata !6009, metadata !6012, metadata !6015, metadata !6018, metadata !6021, metadata !6024, metadata !6027, metadata !6030, metadata !6033, metadata !6036, metadata !6039, metadata !6042, metadata !6045, metadata !6048, metadata !6052, metadata !6055, metadata !6059, metadata !6062, metadata !6063}
 !5707 = metadata !{i32 786460, metadata !5705, null, metadata !325, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !5708} ; [ DW_TAG_inheritance ]
@@ -6797,9 +6797,9 @@ define internal fastcc { i6, i6, i6, i6, i6, i6, i6, i6 } @VMRouterDispatcher_VM
 !6062 = metadata !{i32 786478, i32 0, metadata !5705, metadata !"ap_uint", metadata !"ap_uint", metadata !"", metadata !325, i32 180, metadata !5990, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !6063 = metadata !{i32 786478, i32 0, metadata !5705, metadata !"~ap_uint", metadata !"~ap_uint", metadata !"", metadata !325, i32 180, metadata !5986, i1 false, i1 false, i32 0, i32 0, null, i32 320, i1 false, null, null, i32 0, metadata !341, i32 180} ; [ DW_TAG_subprogram ]
 !6064 = metadata !{i32 786445, metadata !5372, metadata !"pt", metadata !2270, i32 68, i64 8, i64 8, i64 24, i32 1, metadata !6065} ; [ DW_TAG_member ]
-!6065 = metadata !{i32 786454, null, metadata !"ReducedPt_Layer", metadata !2270, i32 23, i64 0, i64 0, i64 0, i32 0, metadata !5015} ; [ DW_TAG_typedef ]
+!6065 = metadata !{i32 786454, null, metadata !"ReducedPt_Layer", metadata !2270, i32 24, i64 0, i64 0, i64 0, i32 0, metadata !5015} ; [ DW_TAG_typedef ]
 !6066 = metadata !{i32 786445, metadata !5372, metadata !"index", metadata !2270, i32 69, i64 8, i64 8, i64 32, i32 1, metadata !6067} ; [ DW_TAG_member ]
-!6067 = metadata !{i32 786454, null, metadata !"ReducedIndex", metadata !2270, i32 24, i64 0, i64 0, i64 0, i32 0, metadata !6068} ; [ DW_TAG_typedef ]
+!6067 = metadata !{i32 786454, null, metadata !"ReducedIndex", metadata !2270, i32 25, i64 0, i64 0, i64 0, i32 0, metadata !6068} ; [ DW_TAG_typedef ]
 !6068 = metadata !{i32 786434, null, metadata !"ap_uint<6>", metadata !325, i32 180, i64 8, i64 8, i32 0, i32 0, null, metadata !6069, i32 0, null, metadata !3324} ; [ DW_TAG_class_type ]
 !6069 = metadata !{metadata !6070, metadata !6315, metadata !6319, metadata !6324, metadata !6330, metadata !6333, metadata !6623, metadata !6626, metadata !6629, metadata !6632, metadata !6635, metadata !6638, metadata !6641, metadata !6644, metadata !6647, metadata !6650, metadata !6653, metadata !6656, metadata !6659, metadata !6662, metadata !6665, metadata !6668, metadata !6672, metadata !6675, metadata !6679, metadata !6682, metadata !6683}
 !6070 = metadata !{i32 786460, metadata !6068, null, metadata !325, i32 0, i64 0, i64 0, i64 0, i32 0, metadata !6071} ; [ DW_TAG_inheritance ]

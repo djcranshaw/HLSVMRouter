@@ -7,30 +7,65 @@
 
 using namespace std;
 
-void VMRouterDispatcher(HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS],
-              HLSFullStubLayerPS allStubs[MAX_nSTUBS],
-              HLSReducedStubLayer vmStubsPH1Z1[MAX_nSTUBS],
-              HLSReducedStubLayer vmStubsPH2Z1[MAX_nSTUBS],
-              HLSReducedStubLayer vmStubsPH3Z1[MAX_nSTUBS],
-              HLSReducedStubLayer vmStubsPH4Z1[MAX_nSTUBS],
-              HLSReducedStubLayer vmStubsPH1Z2[MAX_nSTUBS],
-              HLSReducedStubLayer vmStubsPH2Z2[MAX_nSTUBS],
-              HLSReducedStubLayer vmStubsPH3Z2[MAX_nSTUBS],
-              HLSReducedStubLayer vmStubsPH4Z2[MAX_nSTUBS],
-              int nStubs,
-              ReducedIndex *nPH1Z1, ReducedIndex *nPH2Z1,
-              ReducedIndex *nPH3Z1, ReducedIndex *nPH4Z1,
-              ReducedIndex *nPH1Z2, ReducedIndex *nPH2Z2,
-              ReducedIndex *nPH3Z2, ReducedIndex *nPH4Z2)
+void VMRouterDispatcher(HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS*MAX_nROUTERS],
+              HLSFullStubLayerPS allStubs[MAX_nSTUBS*MAX_nROUTERS],
+              HLSReducedStubLayer vmStubsPH1Z1[MAX_nSTUBS*MAX_nROUTERS],
+              HLSReducedStubLayer vmStubsPH2Z1[MAX_nSTUBS*MAX_nROUTERS],
+              HLSReducedStubLayer vmStubsPH3Z1[MAX_nSTUBS*MAX_nROUTERS],
+              HLSReducedStubLayer vmStubsPH4Z1[MAX_nSTUBS*MAX_nROUTERS],
+              HLSReducedStubLayer vmStubsPH1Z2[MAX_nSTUBS*MAX_nROUTERS],
+              HLSReducedStubLayer vmStubsPH2Z2[MAX_nSTUBS*MAX_nROUTERS],
+              HLSReducedStubLayer vmStubsPH3Z2[MAX_nSTUBS*MAX_nROUTERS],
+              HLSReducedStubLayer vmStubsPH4Z2[MAX_nSTUBS*MAX_nROUTERS],
+              int nStubs[MAX_nROUTERS],
+              ReducedIndex nPH1Z1[MAX_nROUTERS], ReducedIndex nPH2Z1[MAX_nROUTERS],
+              ReducedIndex nPH3Z1[MAX_nROUTERS], ReducedIndex nPH4Z1[MAX_nROUTERS],
+              ReducedIndex nPH1Z2[MAX_nROUTERS], ReducedIndex nPH2Z2[MAX_nROUTERS],
+              ReducedIndex nPH3Z2[MAX_nROUTERS], ReducedIndex nPH4Z2[MAX_nROUTERS])
 {
-  VMRouter(stubsInLayer, allStubs,
-           vmStubsPH1Z1, vmStubsPH2Z1,
-           vmStubsPH3Z1, vmStubsPH4Z1,
-           vmStubsPH1Z2, vmStubsPH2Z2,
-           vmStubsPH3Z2, vmStubsPH4Z2,
-	   nStubs,
-	   nPH1Z1, nPH2Z1,
-	   nPH3Z1, nPH4Z1,
-	   nPH1Z2, nPH2Z2,
-	   nPH3Z2, nPH4Z2);
+  HLSFullStubLayerPS curStubsInLayer[MAX_nSTUBS];
+  HLSFullStubLayerPS curAllStubs[MAX_nSTUBS];
+  HLSReducedStubLayer curvmStubsPH1Z1[MAX_nSTUBS];
+  HLSReducedStubLayer curvmStubsPH2Z1[MAX_nSTUBS];
+  HLSReducedStubLayer curvmStubsPH3Z1[MAX_nSTUBS];
+  HLSReducedStubLayer curvmStubsPH4Z1[MAX_nSTUBS];
+  HLSReducedStubLayer curvmStubsPH1Z2[MAX_nSTUBS];
+  HLSReducedStubLayer curvmStubsPH2Z2[MAX_nSTUBS];
+  HLSReducedStubLayer curvmStubsPH3Z2[MAX_nSTUBS];
+  HLSReducedStubLayer curvmStubsPH4Z2[MAX_nSTUBS];
+ /* for (int i=0; i<MAX_nROUTERS; i++)
+  {
+    printf("nPH1Z1->to_int(): %d\n",nPH1Z1[i].to_int());
+    printf("nPH2Z1->to_int(): %d\n",nPH2Z1[i].to_int());
+    printf("nPH3Z1->to_int(): %d\n",nPH3Z1[i].to_int());
+    printf("nPH4Z1->to_int(): %d\n",nPH4Z1[i].to_int());
+    printf("nPH1Z2->to_int(): %d\n",nPH1Z2[i].to_int());
+    printf("nPH2Z2->to_int(): %d\n",nPH2Z2[i].to_int());
+    printf("nPH3Z2->to_int(): %d\n",nPH3Z2[i].to_int());
+    printf("nPH4Z2->to_int(): %d\n",nPH4Z2[i].to_int());
+  }*/
+
+  for (int i=0; i<MAX_nROUTERS; i++)
+  {
+    copy(stubsInLayer + i*MAX_nSTUBS, stubsInLayer + (i+1)*MAX_nSTUBS, curStubsInLayer);
+    VMRouter(curStubsInLayer, curAllStubs,
+             curvmStubsPH1Z1, curvmStubsPH2Z1,
+             curvmStubsPH3Z1, curvmStubsPH4Z1,
+             curvmStubsPH1Z2, curvmStubsPH2Z2,
+             curvmStubsPH3Z2, curvmStubsPH4Z2,
+             nStubs[i],
+             &nPH1Z1[i], &nPH2Z1[i],
+             &nPH3Z1[i], &nPH4Z1[i],
+             &nPH1Z2[i], &nPH2Z2[i],
+             &nPH3Z2[i], &nPH4Z2[i]);
+    copy(curAllStubs, curAllStubs + MAX_nSTUBS, allStubs + i*MAX_nSTUBS);
+    copy(curvmStubsPH1Z1, curvmStubsPH1Z1 + MAX_nSTUBS, vmStubsPH1Z1 + i*MAX_nSTUBS);
+    copy(curvmStubsPH2Z1, curvmStubsPH2Z1 + MAX_nSTUBS, vmStubsPH2Z1 + i*MAX_nSTUBS);
+    copy(curvmStubsPH3Z1, curvmStubsPH3Z1 + MAX_nSTUBS, vmStubsPH3Z1 + i*MAX_nSTUBS);
+    copy(curvmStubsPH4Z1, curvmStubsPH4Z1 + MAX_nSTUBS, vmStubsPH4Z1 + i*MAX_nSTUBS);
+    copy(curvmStubsPH1Z2, curvmStubsPH1Z2 + MAX_nSTUBS, vmStubsPH1Z2 + i*MAX_nSTUBS);
+    copy(curvmStubsPH2Z2, curvmStubsPH2Z2 + MAX_nSTUBS, vmStubsPH2Z2 + i*MAX_nSTUBS);
+    copy(curvmStubsPH3Z2, curvmStubsPH3Z2 + MAX_nSTUBS, vmStubsPH3Z2 + i*MAX_nSTUBS);
+    copy(curvmStubsPH4Z2, curvmStubsPH4Z2 + MAX_nSTUBS, vmStubsPH4Z2 + i*MAX_nSTUBS);
+  }
 }

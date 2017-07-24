@@ -51,6 +51,9 @@
             <Rtl active="false" name="vhdl"/>
         </SimFlow>
     </Simulation>
+    <clockList>
+        <clock name="default" default="false" period="4.16"/>
+    </clockList>
     <name>
         <value string="solution1"/>
     </name>
@@ -64,8 +67,5 @@
         <library name="DefaultPlatform" value="xilinx/virtex7/virtex7"/>
         <library name="DefaultPlatform" value="xilinx/virtex7/virtex7_fpv6"/>
     </libraryList>
-    <clockList>
-        <clock name="default" default="false" period="4.16"/>
-    </clockList>
 </solution>
 

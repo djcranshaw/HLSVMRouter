@@ -39038,6 +39038,7 @@ struct ap_ufixed: ap_fixed_base<_AP_W, _AP_I, false, _AP_Q, _AP_O, _AP_N> {
 
 // Define max number of stubs an individual module can take
 const int MAX_nSTUBS = 50;
+const int MAX_nROUTERS = 1;
 const int MAX_nEVENTS = 100;
 
 // Define bit widths for full stub parameters (for both PS & 2S)
@@ -43782,6 +43783,7 @@ class ssdm_global_array_VMRouterpp0cppaplinecpp {
  public:
    inline __attribute__((always_inline)) ssdm_global_array_VMRouterpp0cppaplinecpp() {
    _ssdm_SpecConstant(&MAX_nSTUBS);
+   _ssdm_SpecConstant(&MAX_nROUTERS);
    _ssdm_SpecConstant(&MAX_nEVENTS);
   }
 };

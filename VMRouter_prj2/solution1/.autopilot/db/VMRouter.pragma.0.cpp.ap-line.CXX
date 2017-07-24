@@ -595,87 +595,87 @@
 #pragma line 62 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/common/technology/autopilot/ap_int.h" 2 ::: 38512
 #pragma line 5 "./HLSFullStubLayerPS.hh" 2 ::: 38982
 #pragma line 1 "./HLSConstants.hh" 1 ::: 38983
-#pragma line 6 "./HLSFullStubLayerPS.hh" 2 ::: 39008
-#pragma line 8 "VMRouter.cpp" 2 ::: 39064
-#pragma line 1 "./VMRouter.hh" 1 ::: 39066
-#pragma line 1 "./HLSReducedStubLayer.hh" 1 ::: 39072
-#pragma line 6 "./VMRouter.hh" 2 ::: 39143
-#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 1 3 ::: 39144
-#pragma line 59 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 3 ::: 39204
-#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_construct.h" 1 3 ::: 39208
-#pragma line 63 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 2 3 ::: 39366
-#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_uninitialized.h" 1 3 ::: 39367
-#pragma line 653 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_uninitialized.h" 3 ::: 39797
-#pragma line 64 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 2 3 ::: 39799
-#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 1 3 ::: 39800
-#pragma line 65 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 39856
-#pragma line 141 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 39919
-#pragma line 254 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40006
-#pragma line 317 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40038
-#pragma line 401 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40085
-#pragma line 453 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40120
-#pragma line 567 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40196
-#pragma line 617 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40207
-#pragma line 645 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40227
-#pragma line 847 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40419
-#pragma line 881 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40435
-#pragma line 929 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40449
-#pragma line 1140 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40649
-#pragma line 65 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 2 3 ::: 40836
-#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_bvector.h" 1 3 ::: 40837
-#pragma line 431 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_bvector.h" 3 ::: 41254
-#pragma line 547 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_bvector.h" 3 ::: 41357
-#pragma line 592 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_bvector.h" 3 ::: 41383
-#pragma line 664 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_bvector.h" 3 ::: 41437
-#pragma line 66 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 2 3 ::: 41811
-#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/vector.tcc" 1 3 ::: 41815
-#pragma line 106 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/vector.tcc" 3 ::: 41902
-#pragma line 128 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/vector.tcc" 3 ::: 41917
-#pragma line 298 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/vector.tcc" 3 ::: 42061
-#pragma line 519 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/vector.tcc" 3 ::: 42229
-#pragma line 70 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 2 3 ::: 42450
-#pragma line 7 "./VMRouter.hh" 2 ::: 42451
-#pragma line 10 "VMRouter.cpp" 2 ::: 42470
-#pragma line 1 "/usr/include/stdio.h" 1 3 4 ::: 42473
-#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 42507
-#pragma line 56 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 42532
-#pragma line 34 "/usr/include/stdio.h" 2 3 4 ::: 42535
-#pragma line 74 "/usr/include/stdio.h" 3 4 ::: 42536
-#pragma line 1 "/usr/include/libio.h" 1 3 4 ::: 42537
-#pragma line 1 "/usr/include/_G_config.h" 1 3 4 ::: 42570
-#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 42586
-#pragma line 56 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 42611
-#pragma line 16 "/usr/include/_G_config.h" 2 3 4 ::: 42614
-#pragma line 1 "/usr/include/wchar.h" 1 3 4 ::: 42619
-#pragma line 897 "/usr/include/wchar.h" 3 4 ::: 42641
-#pragma line 21 "/usr/include/_G_config.h" 2 3 4 ::: 42644
-#pragma line 45 "/usr/include/_G_config.h" 3 4 ::: 42655
-#pragma line 33 "/usr/include/libio.h" 2 3 4 ::: 42665
-#pragma line 48 "/usr/include/libio.h" 3 4 ::: 42667
-#pragma line 87 "/usr/include/libio.h" 3 4 ::: 42669
-#pragma line 125 "/usr/include/libio.h" 3 4 ::: 42675
-#pragma line 145 "/usr/include/libio.h" 3 4 ::: 42677
-#pragma line 178 "/usr/include/libio.h" 3 4 ::: 42701
-#pragma line 246 "/usr/include/libio.h" 3 4 ::: 42712
-#pragma line 294 "/usr/include/libio.h" 3 4 ::: 42753
-#pragma line 303 "/usr/include/libio.h" 3 4 ::: 42755
-#pragma line 335 "/usr/include/libio.h" 3 4 ::: 42777
-#pragma line 435 "/usr/include/libio.h" 3 4 ::: 42837
-#pragma line 465 "/usr/include/libio.h" 3 4 ::: 42852
-#pragma line 527 "/usr/include/libio.h" 3 4 ::: 42864
-#pragma line 75 "/usr/include/stdio.h" 2 3 4 ::: 42866
-#pragma line 107 "/usr/include/stdio.h" 3 4 ::: 42872
-#pragma line 150 "/usr/include/stdio.h" 3 4 ::: 42906
-#pragma line 1 "/usr/include/bits/stdio_lim.h" 1 3 4 ::: 42922
-#pragma line 165 "/usr/include/stdio.h" 2 3 4 ::: 42939
-#pragma line 205 "/usr/include/stdio.h" 3 4 ::: 42971
-#pragma line 297 "/usr/include/stdio.h" 3 4 ::: 43048
-#pragma line 467 "/usr/include/stdio.h" 3 4 ::: 43187
-#pragma line 527 "/usr/include/stdio.h" 3 4 ::: 43207
-#pragma line 794 "/usr/include/stdio.h" 3 4 ::: 43460
-#pragma line 818 "/usr/include/stdio.h" 3 4 ::: 43471
-#pragma line 1 "/usr/include/bits/sys_errlist.h" 1 3 4 ::: 43508
-#pragma line 854 "/usr/include/stdio.h" 2 3 4 ::: 43540
-#pragma line 931 "/usr/include/stdio.h" 3 4 ::: 43608
-#pragma line 943 "/usr/include/stdio.h" 3 4 ::: 43611
-#pragma line 13 "VMRouter.cpp" 2 ::: 43613
+#pragma line 6 "./HLSFullStubLayerPS.hh" 2 ::: 39009
+#pragma line 8 "VMRouter.cpp" 2 ::: 39065
+#pragma line 1 "./VMRouter.hh" 1 ::: 39067
+#pragma line 1 "./HLSReducedStubLayer.hh" 1 ::: 39073
+#pragma line 6 "./VMRouter.hh" 2 ::: 39144
+#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 1 3 ::: 39145
+#pragma line 59 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 3 ::: 39205
+#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_construct.h" 1 3 ::: 39209
+#pragma line 63 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 2 3 ::: 39367
+#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_uninitialized.h" 1 3 ::: 39368
+#pragma line 653 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_uninitialized.h" 3 ::: 39798
+#pragma line 64 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 2 3 ::: 39800
+#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 1 3 ::: 39801
+#pragma line 65 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 39857
+#pragma line 141 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 39920
+#pragma line 254 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40007
+#pragma line 317 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40039
+#pragma line 401 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40086
+#pragma line 453 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40121
+#pragma line 567 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40197
+#pragma line 617 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40208
+#pragma line 645 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40228
+#pragma line 847 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40420
+#pragma line 881 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40436
+#pragma line 929 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40450
+#pragma line 1140 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_vector.h" 3 ::: 40650
+#pragma line 65 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 2 3 ::: 40837
+#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_bvector.h" 1 3 ::: 40838
+#pragma line 431 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_bvector.h" 3 ::: 41255
+#pragma line 547 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_bvector.h" 3 ::: 41358
+#pragma line 592 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_bvector.h" 3 ::: 41384
+#pragma line 664 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/stl_bvector.h" 3 ::: 41438
+#pragma line 66 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 2 3 ::: 41812
+#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/vector.tcc" 1 3 ::: 41816
+#pragma line 106 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/vector.tcc" 3 ::: 41903
+#pragma line 128 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/vector.tcc" 3 ::: 41918
+#pragma line 298 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/vector.tcc" 3 ::: 42062
+#pragma line 519 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/bits/vector.tcc" 3 ::: 42230
+#pragma line 70 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.6.3/../../../../include/c++/4.6.3/vector" 2 3 ::: 42451
+#pragma line 7 "./VMRouter.hh" 2 ::: 42452
+#pragma line 10 "VMRouter.cpp" 2 ::: 42471
+#pragma line 1 "/usr/include/stdio.h" 1 3 4 ::: 42474
+#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 42508
+#pragma line 56 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 42533
+#pragma line 34 "/usr/include/stdio.h" 2 3 4 ::: 42536
+#pragma line 74 "/usr/include/stdio.h" 3 4 ::: 42537
+#pragma line 1 "/usr/include/libio.h" 1 3 4 ::: 42538
+#pragma line 1 "/usr/include/_G_config.h" 1 3 4 ::: 42571
+#pragma line 1 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 1 3 4 ::: 42587
+#pragma line 56 "/nfs/opt/Xilinx/Vivado_HLS/2016.1/lnx64/tools/clang/bin/../lib/clang/3.1/include/stddef.h" 3 4 ::: 42612
+#pragma line 16 "/usr/include/_G_config.h" 2 3 4 ::: 42615
+#pragma line 1 "/usr/include/wchar.h" 1 3 4 ::: 42620
+#pragma line 897 "/usr/include/wchar.h" 3 4 ::: 42642
+#pragma line 21 "/usr/include/_G_config.h" 2 3 4 ::: 42645
+#pragma line 45 "/usr/include/_G_config.h" 3 4 ::: 42656
+#pragma line 33 "/usr/include/libio.h" 2 3 4 ::: 42666
+#pragma line 48 "/usr/include/libio.h" 3 4 ::: 42668
+#pragma line 87 "/usr/include/libio.h" 3 4 ::: 42670
+#pragma line 125 "/usr/include/libio.h" 3 4 ::: 42676
+#pragma line 145 "/usr/include/libio.h" 3 4 ::: 42678
+#pragma line 178 "/usr/include/libio.h" 3 4 ::: 42702
+#pragma line 246 "/usr/include/libio.h" 3 4 ::: 42713
+#pragma line 294 "/usr/include/libio.h" 3 4 ::: 42754
+#pragma line 303 "/usr/include/libio.h" 3 4 ::: 42756
+#pragma line 335 "/usr/include/libio.h" 3 4 ::: 42778
+#pragma line 435 "/usr/include/libio.h" 3 4 ::: 42838
+#pragma line 465 "/usr/include/libio.h" 3 4 ::: 42853
+#pragma line 527 "/usr/include/libio.h" 3 4 ::: 42865
+#pragma line 75 "/usr/include/stdio.h" 2 3 4 ::: 42867
+#pragma line 107 "/usr/include/stdio.h" 3 4 ::: 42873
+#pragma line 150 "/usr/include/stdio.h" 3 4 ::: 42907
+#pragma line 1 "/usr/include/bits/stdio_lim.h" 1 3 4 ::: 42923
+#pragma line 165 "/usr/include/stdio.h" 2 3 4 ::: 42940
+#pragma line 205 "/usr/include/stdio.h" 3 4 ::: 42972
+#pragma line 297 "/usr/include/stdio.h" 3 4 ::: 43049
+#pragma line 467 "/usr/include/stdio.h" 3 4 ::: 43188
+#pragma line 527 "/usr/include/stdio.h" 3 4 ::: 43208
+#pragma line 794 "/usr/include/stdio.h" 3 4 ::: 43461
+#pragma line 818 "/usr/include/stdio.h" 3 4 ::: 43472
+#pragma line 1 "/usr/include/bits/sys_errlist.h" 1 3 4 ::: 43509
+#pragma line 854 "/usr/include/stdio.h" 2 3 4 ::: 43541
+#pragma line 931 "/usr/include/stdio.h" 3 4 ::: 43609
+#pragma line 943 "/usr/include/stdio.h" 3 4 ::: 43612
+#pragma line 13 "VMRouter.cpp" 2 ::: 43614

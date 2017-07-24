@@ -46,6 +46,14 @@ void VMRouter(HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS],
   ap_uint<1> routeZ;
 
   index = 0;
+  //printf("nPH1Z1->to_int(): %d\n",nPH1Z1->to_int());
+  //printf("nPH2Z1->to_int(): %d\n",nPH2Z1->to_int());
+  //printf("nPH3Z1->to_int(): %d\n",nPH3Z1->to_int());
+  //printf("nPH4Z1->to_int(): %d\n",nPH4Z1->to_int());
+  //printf("nPH1Z2->to_int(): %d\n",nPH1Z2->to_int());
+  //printf("nPH2Z2->to_int(): %d\n",nPH2Z2->to_int());
+  //printf("nPH3Z2->to_int(): %d\n",nPH3Z2->to_int());
+  //printf("nPH4Z2->to_int(): %d\n",nPH4Z2->to_int());
   for (int i=0; i<MAX_nSTUBS; i++)
   {
   #pragma HLS PIPELINE II=1
@@ -87,7 +95,7 @@ void VMRouter(HLSFullStubLayerPS stubsInLayer[MAX_nSTUBS],
           {
             case 0:
               vmStubsPH1Z1[nPH1Z1->to_int()].AddStub(redZ, redPhi, redR, redPt, index);
-              *nPH1Z1 = *nPH1Z1 +1;
+              *nPH1Z1 = *nPH1Z1 + 1;
               break;
             case 1:
               vmStubsPH2Z1[nPH2Z1->to_int()].AddStub(redZ, redPhi, redR, redPt, index);

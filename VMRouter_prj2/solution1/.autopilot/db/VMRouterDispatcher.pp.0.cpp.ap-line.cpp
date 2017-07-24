@@ -38968,6 +38968,7 @@ struct ap_ufixed: ap_fixed_base<_AP_W, _AP_I, false, _AP_Q, _AP_O, _AP_N> {
 #pragma empty_line
 // Define max number of stubs an individual module can take
 const int MAX_nSTUBS = 50;
+const int MAX_nROUTERS = 1;
 const int MAX_nEVENTS = 100;
 #pragma empty_line
 // Define bit widths for full stub parameters (for both PS & 2S)
